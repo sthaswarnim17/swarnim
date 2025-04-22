@@ -1,6 +1,5 @@
-
 import { Button } from "@/components/ui/button";
-import { ArrowDown, Download } from "lucide-react";
+import { ArrowDown, Download, Circle } from "lucide-react";
 
 export function HeroSection() {
   const scrollToContact = () => {
@@ -49,9 +48,9 @@ export function HeroSection() {
                 className="w-64 h-64 md:w-80 md:h-80 rounded-2xl shadow-xl object-cover"
                 src="/lovable-uploads/e4a4c165-9fe0-426d-afdb-164844acffd2.png"
               />
-              {/* Line below the picture, responsive width, toggles color based on theme */}
-              <div
-                className="mt-5 h-1 w-28 rounded-full bg-[#9F9EA1] dark:bg-[#C8C8C9] transition-colors duration-300"
+              <Circle
+                className="mt-5 text-[#9F9EA1] dark:text-[#C8C8C9] transition-colors duration-300"
+                size={16}
                 aria-hidden="true"
               />
             </div>
