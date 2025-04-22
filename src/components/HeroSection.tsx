@@ -13,22 +13,18 @@ export function HeroSection() {
       <div className="container mx-auto">
         <div className="flex flex-col-reverse md:flex-row items-center justify-between gap-8 md:gap-12">
           <div className="w-full md:w-1/2 animate-enter">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
-              Hi! I'm <span className="text-primary dark:text-blue-400">Swarnim Shrestha</span>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 mx-0 px-0">
+              Hi! I'm <span className="text-primary dark:text-blue-400 py-[8px] font-extrabold">Swarnim Shrestha</span>
             </h1>
             <p className="text-lg md:text-xl mb-4 text-muted-foreground">
               Graphic Designer | Creative Thinker | Visual Storyteller
             </p>
-            <p className="mb-8 text-base md:text-lg">
-              Currently pursuing Computer Engineering at Khwopa College of Engineering, 
-              Swarnim blends technical knowledge with artistic skills to create compelling 
-              visual content across digital platforms.
-            </p>
+            <p className="mb-8 text-base md:text-lg">Currently pursuing Computer Engineering at Khwopa College of Engineering, a curious mind fuses technology with artistic expression — crafting visually captivating content that bridges logic and creativity across digital landscapes.</p>
             <div className="flex flex-wrap gap-4">
-              <Button size="lg" className="gap-2" onClick={() => window.open("/resume.pdf", "_blank")}>
+              <Button size="lg" onClick={() => window.open("/resume.pdf", "_blank")} className="gap-2 px-[20px] py-[3px]">
                 <Download size={18} /> Download Resume
               </Button>
-              <Button variant="outline" size="lg" className="gap-2" onClick={scrollToContact}>
+              <Button variant="outline" size="lg" onClick={scrollToContact} className="gap-2 mx-0 my-0 px-[42px] py-[21px]">
                 <ArrowDown size={18} /> Contact Me
               </Button>
             </div>
