@@ -30,9 +30,9 @@ Swarnim Shrestha</span>
               </Button>
             </div>
           </div>
-          <div className="w-full md:w-1/2 flex justify-center animate-enter" style={{
+          <div style={{
           animationDelay: "0.2s"
-        }}>
+        }} className="w-full md:w-1/2 flex justify-center animate-enter px-0 my-0 py-[16px]">
             <div className="relative">
               <div className="w-64 h-64 md:w-80 md:h-80 rounded-full bg-gradient-to-br from-blue-400 to-purple-500 absolute -z-10 blur-2xl opacity-20 animate-pulse"></div>
               <img alt="Swarnim Shrestha" className="w-64 h-64 md:w-80 md:h-80 rounded-2xl shadow-xl object-cover" src="/lovable-uploads/e4a4c165-9fe0-426d-afdb-164844acffd2.png" />
