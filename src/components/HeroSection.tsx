@@ -38,7 +38,7 @@ export function HeroSection() {
         }}>
             <div className="relative">
               <div className="w-64 h-64 md:w-80 md:h-80 rounded-full bg-gradient-to-br from-blue-400 to-purple-500 absolute -z-10 blur-2xl opacity-20 animate-pulse"></div>
-              <img alt="Swarnim Shrestha" src="/lovable-uploads/913dd6ed-b1b1-435f-8f7c-daefc7428ddf.png" className="w-64 h-64 md:w-80 md:h-80 rounded-2xl shadow-xl object-cover" />
+              <img alt="Swarnim Shrestha" className="w-64 h-64 md:w-80 md:h-80 rounded-2xl shadow-xl object-cover" src="/lovable-uploads/e4a4c165-9fe0-426d-afdb-164844acffd2.png" />
             </div>
           </div>
         </div>
