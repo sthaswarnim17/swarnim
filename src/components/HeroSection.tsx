@@ -1,17 +1,15 @@
-
 import { Button } from "@/components/ui/button";
 import { ArrowDown, Download } from "lucide-react";
-
 export function HeroSection() {
   const scrollToContact = () => {
     const contactSection = document.getElementById("contact");
     if (contactSection) {
-      contactSection.scrollIntoView({ behavior: "smooth" });
+      contactSection.scrollIntoView({
+        behavior: "smooth"
+      });
     }
   };
-
-  return (
-    <section className="min-h-screen flex items-center section-padding pt-24 pb-16">
+  return <section className="min-h-screen flex items-center section-padding pt-24 pb-16">
       <div className="container mx-auto">
         <div className="flex flex-col-reverse md:flex-row items-center justify-between gap-8 md:gap-12">
           <div className="w-full md:w-1/2 animate-enter">
@@ -27,35 +25,23 @@ export function HeroSection() {
               visual content across digital platforms.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Button 
-                size="lg" 
-                className="gap-2"
-                onClick={() => window.open("/resume.pdf", "_blank")}
-              >
+              <Button size="lg" className="gap-2" onClick={() => window.open("/resume.pdf", "_blank")}>
                 <Download size={18} /> Download Resume
               </Button>
-              <Button 
-                variant="outline" 
-                size="lg" 
-                className="gap-2"
-                onClick={scrollToContact}
-              >
+              <Button variant="outline" size="lg" className="gap-2" onClick={scrollToContact}>
                 <ArrowDown size={18} /> Contact Me
               </Button>
             </div>
           </div>
-          <div className="w-full md:w-1/2 flex justify-center animate-enter" style={{animationDelay: "0.2s"}}>
+          <div className="w-full md:w-1/2 flex justify-center animate-enter" style={{
+          animationDelay: "0.2s"
+        }}>
             <div className="relative">
               <div className="w-64 h-64 md:w-80 md:h-80 rounded-full bg-gradient-to-br from-blue-400 to-purple-500 absolute -z-10 blur-2xl opacity-20 animate-pulse"></div>
-              <img 
-                src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158" 
-                alt="Swarnim Shrestha" 
-                className="w-64 h-64 md:w-80 md:h-80 object-cover rounded-2xl shadow-xl"
-              />
+              <img alt="Swarnim Shrestha" src="/lovable-uploads/913dd6ed-b1b1-435f-8f7c-daefc7428ddf.png" className="w-64 h-64 md:w-80 md:h-80 rounded-2xl shadow-xl object-cover" />
             </div>
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 }
