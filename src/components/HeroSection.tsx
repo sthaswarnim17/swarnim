@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { ArrowDown, Download } from "lucide-react";
 export function HeroSection() {
@@ -14,8 +13,9 @@ export function HeroSection() {
       <div className="container mx-auto">
         <div className="flex flex-col-reverse md:flex-row items-center justify-between gap-8 md:gap-12">
           <div className="w-full md:w-1/2 animate-enter">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 mx-0 px-0">
-              Hi! I'm <span className="text-primary dark:text-blue-400 py-[8px] font-extrabold">Swarnim Shrestha</span>
+            <h1 className="text-4xl md:text-5xl mb-4 my-[14px] py-0 mx-0 px-0 font-extrabold lg:text-5xl">
+              Hi! I'm <span className="text-primary dark:text-blue-400 py-[8px] font-extrabold">
+Swarnim Shrestha</span>
             </h1>
             <p className="text-lg md:text-xl mb-4 text-muted-foreground">
               Graphic Designer | Creative Thinker | Visual Storyteller
