@@ -21,7 +21,7 @@ export function HeroSection() {
             </p>
             <p className="mb-8 text-base md:text-lg">A Computer Engineering student at Khwopa College of Engineering, blending tech skills with creativity to design visually engaging digital content.</p>
             <div className="flex flex-wrap gap-4">
-              <Button size="lg" onClick={() => window.open("/resume.pdf", "_blank")} className="gap-2 px-[20px] py-[3px]">
+              <Button size="lg" onClick={() => window.open("/resume.pdf", "_blank")} className="gap-2 py-[3px] px-[18px]">
                 <Download size={18} /> Download Resume
               </Button>
               <Button variant="outline" size="lg" onClick={scrollToContact} className="gap-2 mx-0 my-0 px-[42px] py-[21px]">
