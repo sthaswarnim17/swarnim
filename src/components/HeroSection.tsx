@@ -19,7 +19,7 @@ export function HeroSection() {
             <p className="text-lg md:text-xl mb-4 text-muted-foreground">
               Graphic Designer | Creative Thinker | Visual Storyteller
             </p>
-            <p className="mb-8 text-base md:text-lg">Currently pursuing Computer Engineering at Khwopa College of Engineering, a curious mind fuses technology with artistic expression — crafting visually captivating content that bridges logic and creativity across digital landscapes.</p>
+            <p className="mb-8 text-base md:text-lg">A Computer Engineering student at Khwopa College of Engineering, blending tech skills with creativity to design visually engaging digital content.</p>
             <div className="flex flex-wrap gap-4">
               <Button size="lg" onClick={() => window.open("/resume.pdf", "_blank")} className="gap-2 px-[20px] py-[3px]">
                 <Download size={18} /> Download Resume
