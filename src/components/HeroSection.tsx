@@ -14,16 +14,16 @@ export function HeroSection() {
       <div className="container mx-auto">
         <div className="flex flex-col-reverse md:flex-row items-center justify-between gap-8 md:gap-12">
           <div className="w-full md:w-1/2 animate-enter">
-            <h1 className="text-4xl md:text-5xl mb-4 my-[14px] py-0 mx-0 px-0 font-extrabold lg:text-5xl">
+            <h1 className="text-4xl md:text-5xl mb-4 py-0 mx-0 px-0 font-extrabold lg:text-5xl my-0">
               Hi! I'm <span className="text-primary dark:text-blue-400 py-[8px] font-extrabold">
                 Swarnim Shrestha
               </span>
             </h1>
-            <p className="flex items-center justify-center h-[46px] mb-4 font-medium" style={{
+            <p style={{
             minHeight: "46px",
             padding: 0,
             margin: 0
-          }}>
+          }} className="flex items-center justify-center h-[46px] mb-4 font-medium py-0">
               <AnimatedTitles />
             </p>
             <p className="mb-8 text-base md:text-lg my-0 py-[30px]">
