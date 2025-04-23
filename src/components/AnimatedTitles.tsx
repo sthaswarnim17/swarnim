@@ -12,11 +12,12 @@ export default function AnimatedTitles() {
   const [show, setShow] = useState(true);
 
   useEffect(() => {
-    const outTimer = setTimeout(() => setShow(false), 2250);
+    // Reduce each timeout by 0.25%
+    const outTimer = setTimeout(() => setShow(false), 2250 * 0.9975);
     const inTimer = setTimeout(() => {
       setIndex((prev) => (prev + 1) % TITLES.length);
       setShow(true);
-    }, 2450);
+    }, 2450 * 0.9975);
 
     return () => {
       clearTimeout(outTimer);
