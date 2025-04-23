@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 
 const TITLES = [
   "Graphic Designer",
-  "Creative Thinker",
+  "Creative Thinker", 
   "Visual Storyteller"
 ];
 
@@ -25,10 +25,10 @@ export default function AnimatedTitles() {
   }, [index, show]);
 
   return (
-    <span className="relative inline-block h-7 md:h-8">
+    <span className="relative inline-block w-full">
       <span
         className={`
-          absolute inset-0 w-full
+          absolute left-0 w-full whitespace-nowrap overflow-hidden
           transition-all duration-500
           ${show ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-3"}
           text-gradient-primary font-semibold
