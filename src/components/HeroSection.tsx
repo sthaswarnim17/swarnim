@@ -26,7 +26,7 @@ export function HeroSection() {
           }} className="flex items-center justify-center h-[46px] mb-4 font-medium py-0">
               <AnimatedTitles />
             </p>
-            <p className="mb-8 text-base md:text-lg my-0 py-[30px]">
+            <p className="mb-8 text-base md:text-lg my-0 py-[17px]">
               A Computer Engineering student at Khwopa College of Engineering, blending tech skills with creativity to design visually engaging digital content.
             </p>
             <div className="flex gap-4 mx-0 my-0 px-0 py-0">
