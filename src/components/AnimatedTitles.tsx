@@ -12,11 +12,11 @@ export default function AnimatedTitles() {
   const [show, setShow] = useState(true);
 
   useEffect(() => {
-    const outTimer = setTimeout(() => setShow(false), 2000);
+    const outTimer = setTimeout(() => setShow(false), 1500);
     const inTimer = setTimeout(() => {
       setIndex((prev) => (prev + 1) % TITLES.length);
       setShow(true);
-    }, 2000);
+    }, 1700);
 
     return () => {
       clearTimeout(outTimer);
@@ -29,7 +29,7 @@ export default function AnimatedTitles() {
       <span
         className={`
           absolute left-0 w-full whitespace-nowrap overflow-hidden
-          transition-all duration-400
+          transition-all duration-300
           ${show ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-3"}
           text-gradient-primary font-semibold
         `}
@@ -40,4 +40,3 @@ export default function AnimatedTitles() {
     </span>
   );
 }
-
