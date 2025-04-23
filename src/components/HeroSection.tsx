@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowDown, Download, Circle } from "lucide-react";
 import AnimatedTitles from "./AnimatedTitles";
-
 export function HeroSection() {
   const scrollToContact = () => {
     const contactSection = document.getElementById("contact");
@@ -11,8 +10,7 @@ export function HeroSection() {
       });
     }
   };
-  return (
-    <section className="min-h-screen flex items-center section-padding pt-24 pb-16">
+  return <section className="min-h-screen flex items-center section-padding pt-24 pb-16">
       <div className="container mx-auto">
         <div className="flex flex-col-reverse md:flex-row items-center justify-between gap-8 md:gap-12">
           <div className="w-full md:w-1/2 animate-enter">
@@ -21,7 +19,7 @@ export function HeroSection() {
                 Swarnim Shrestha
               </span>
             </h1>
-            <p className="text-lg md:text-xl mb-4 text-muted-foreground">
+            <p className="text-lg md:text-xl mb-4 text-muted-foreground my-0 py-0 px-0 text-left mx-0">
               <AnimatedTitles />
             </p>
             <p className="mb-8 text-base md:text-lg">
@@ -36,28 +34,16 @@ export function HeroSection() {
               </Button>
             </div>
           </div>
-          <div
-            style={{
-              animationDelay: "0.2s"
-            }}
-            className="w-full md:w-1/2 flex flex-col items-center justify-center animate-enter px-0 my-0 py-[16px]"
-          >
+          <div style={{
+          animationDelay: "0.2s"
+        }} className="w-full md:w-1/2 flex flex-col items-center justify-center animate-enter px-0 my-0 py-[16px]">
             <div className="relative flex flex-col items-center">
               <div className="w-64 h-64 md:w-80 md:h-80 rounded-full bg-gradient-to-br from-blue-400 to-purple-500 absolute -z-10 blur-2xl opacity-20 animate-pulse"></div>
-              <img
-                alt="Swarnim Shrestha"
-                className="w-64 h-64 md:w-80 md:h-80 rounded-2xl shadow-xl object-cover"
-                src="/lovable-uploads/e4a4c165-9fe0-426d-afdb-164844acffd2.png"
-              />
-              <Circle
-                className="mt-5 text-[#9F9EA1] dark:text-[#C8C8C9] transition-colors duration-300"
-                size={16}
-                aria-hidden="true"
-              />
+              <img alt="Swarnim Shrestha" className="w-64 h-64 md:w-80 md:h-80 rounded-2xl shadow-xl object-cover" src="/lovable-uploads/e4a4c165-9fe0-426d-afdb-164844acffd2.png" />
+              <Circle className="mt-5 text-[#9F9EA1] dark:text-[#C8C8C9] transition-colors duration-300" size={16} aria-hidden="true" />
             </div>
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 }
