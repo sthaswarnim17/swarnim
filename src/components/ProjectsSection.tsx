@@ -43,7 +43,7 @@ export function ProjectsSection() {
   const projects = [
     {
       title: "Graphics Designer – Hult Prize 2024",
-      description: "Graphics Designer for Hult Prize at Khwopa College of Engineering. Created posters, certificates, social media creatives, and event backdrops—elevating the event's visual identity and impact.",
+      description: "Designed visuals for Hult Prize at Khwopa College of Engineering— posters, certificates, and event creatives.",
       image: "https://images.unsplash.com/photo-1523712999610-f77fbcfc3843",
       delay: "0s",
     },
