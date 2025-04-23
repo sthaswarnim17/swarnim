@@ -96,7 +96,7 @@ export function ContactSection() {
                 </div>
                 <div className="flex items-center gap-3">
                   <Phone className="h-5 w-5 text-muted-foreground" />
-                  <span>+977 9800000000</span>
+                  <span>+977 9804014731</span>
                 </div>
               </div>
             </div>
