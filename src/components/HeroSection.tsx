@@ -19,7 +19,7 @@ export function HeroSection() {
                 Swarnim Shrestha
               </span>
             </h1>
-            <p className="text-lg md:text-xl mb-4 text-muted-foreground my-0 py-0 px-0 text-left mx-0">
+            <p className="text-lg md:text-xl mb-4 text-muted-foreground text-center py-[9px] px-[12px] mx-0 my-0 font-medium">
               <AnimatedTitles />
             </p>
             <p className="mb-8 text-base md:text-lg">
