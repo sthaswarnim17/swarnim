@@ -1,8 +1,6 @@
-
 import { Button } from "@/components/ui/button";
 import { ArrowDown, Download } from "lucide-react";
 import AnimatedTitles from "./AnimatedTitles";
-
 export function HeroSection() {
   const scrollToContact = () => {
     const contactSection = document.getElementById("contact");
@@ -12,7 +10,6 @@ export function HeroSection() {
       });
     }
   };
-
   return <section className="min-h-screen flex items-center section-padding pt-24 pb-16">
       <div className="container mx-auto">
         <div className="flex flex-col-reverse md:flex-row items-center justify-between gap-8 md:gap-12">
@@ -29,7 +26,7 @@ export function HeroSection() {
           }}>
               <AnimatedTitles />
             </p>
-            <p className="mb-8 text-base md:text-lg my-0 py-[25px]">
+            <p className="mb-8 text-base md:text-lg my-0 py-[27px]">
               A Computer Engineering student at Khwopa College of Engineering, blending tech skills with creativity to design visually engaging digital content.
             </p>
             <div className="flex gap-4 mx-0 my-0 px-0 py-0">
