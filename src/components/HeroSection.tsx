@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowDown, Download, Circle } from "lucide-react";
+import AnimatedTitles from "./AnimatedTitles";
 
 export function HeroSection() {
   const scrollToContact = () => {
@@ -21,7 +22,7 @@ export function HeroSection() {
               </span>
             </h1>
             <p className="text-lg md:text-xl mb-4 text-muted-foreground">
-              Graphic Designer | Creative Thinker | Visual Storyteller
+              <AnimatedTitles />
             </p>
             <p className="mb-8 text-base md:text-lg">
               A Computer Engineering student at Khwopa College of Engineering, blending tech skills with creativity to design visually engaging digital content.
