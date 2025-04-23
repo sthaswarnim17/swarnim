@@ -42,8 +42,8 @@ function ProjectCard({ title, description, image, delay = "0s" }: ProjectCardPro
 export function ProjectsSection() {
   const projects = [
     {
-      title: "Event Promotional Design",
-      description: "Crafted vibrant promotional materials for a college tech event focusing on user engagement.",
+      title: "Graphics Designer – Hult Prize 2024",
+      description: "Graphics Designer for Hult Prize at Khwopa College of Engineering. Created posters, certificates, social media creatives, and event backdrops—elevating the event's visual identity and impact.",
       image: "https://images.unsplash.com/photo-1523712999610-f77fbcfc3843",
       delay: "0s",
     },
