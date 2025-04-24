@@ -44,7 +44,7 @@ export function ProjectsSection() {
     {
       title: "Graphics Designer- Hult Prize at KhCE 2024",
       description: "Designed visuals for Hult Prize at Khwopa College of Engineering— posters, certificates, and event creatives.",
-      image: "https://images.unsplash.com/photo-1523712999610-f77fbcfc3843",
+      image: "/lovable-uploads/24f39cb4-f4af-4cda-ae87-bb3decea059d.png",
       delay: "0s",
     },
     {
