@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Facebook, Instagram, Linkedin, Mail, Phone, User, Send, Loader2 } from "lucide-react";
-import { useToast } from "@/components/ui/use-toast";
+import { useToast } from "@/hooks/use-toast";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -26,6 +26,11 @@ const formSchema = z.object({
 
 type FormValues = z.infer<typeof formSchema>;
 
+// EmailJS configuration constants
+const EMAILJS_SERVICE_ID = "service_wrtc6lp";
+const EMAILJS_TEMPLATE_ID = "template_bxssa0o";
+const EMAILJS_PUBLIC_KEY = "l7EnEqLT6bLARNO1q";
+
 export function ContactSection() {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -44,17 +49,15 @@ export function ContactSection() {
     setIsSubmitting(true);
     
     try {
-      // Setup EmailJS with your service ID, template ID, and public key
-      // You'll need to create an account at emailjs.com and set up these values
       await emailjs.send(
-        'service_xxxxxxx',  // Replace with your EmailJS service ID
-        'template_xxxxxxx', // Replace with your EmailJS template ID
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
         {
           from_name: data.name,
           from_email: data.email,
           message: data.message
         },
-        'public_key_xxxxxxxx' // Replace with your EmailJS public key
+        EMAILJS_PUBLIC_KEY
       );
       
       toast({
@@ -65,20 +68,11 @@ export function ContactSection() {
     } catch (error) {
       console.error("Error sending email:", error);
       
-      // For development/demo purposes, show success even if EmailJS fails
-      // Remove this condition in production and keep only the error toast
       toast({
-        title: "Message sent!",
-        description: "Thanks for reaching out. I'll get back to you soon.",
+        title: "Failed to send message",
+        description: "Please try again or contact me directly.",
+        variant: "destructive",
       });
-      form.reset();
-      
-      // Uncomment this for production use with proper EmailJS setup
-      // toast({
-      //   title: "Failed to send message",
-      //   description: "Please try again or contact me directly.",
-      //   variant: "destructive",
-      // });
     } finally {
       setIsSubmitting(false);
     }
