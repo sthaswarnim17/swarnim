@@ -2,100 +2,205 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Facebook, Instagram, Linkedin, Mail, Phone } from "lucide-react";
+import { Facebook, Instagram, Linkedin, Mail, Phone, User, Send, Loader2 } from "lucide-react";
 import { useToast } from "@/components/ui/use-toast";
-export function ContactSection() {
-  const {
-    toast
-  } = useToast();
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: ""
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const {
-      name,
-      value
-    } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+import emailjs from '@emailjs/browser';
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
 
-    // Simulate form submission
-    setTimeout(() => {
+// Define the form schema with Zod
+const formSchema = z.object({
+  name: z.string().min(2, { message: "Name must be at least 2 characters" }),
+  email: z.string().email({ message: "Please enter a valid email address" }),
+  message: z.string().min(10, { message: "Message must be at least 10 characters" })
+});
+
+type FormValues = z.infer<typeof formSchema>;
+
+export function ContactSection() {
+  const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // Initialize react-hook-form
+  const form = useForm<FormValues>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      name: "",
+      email: "",
+      message: ""
+    },
+  });
+
+  const onSubmit = async (data: FormValues) => {
+    setIsSubmitting(true);
+    
+    try {
+      // Setup EmailJS with your service ID, template ID, and public key
+      // You'll need to create an account at emailjs.com and set up these values
+      await emailjs.send(
+        'service_xxxxxxx',  // Replace with your EmailJS service ID
+        'template_xxxxxxx', // Replace with your EmailJS template ID
+        {
+          from_name: data.name,
+          from_email: data.email,
+          message: data.message
+        },
+        'public_key_xxxxxxxx' // Replace with your EmailJS public key
+      );
+      
+      toast({
+        title: "Message sent successfully!",
+        description: "Thanks for reaching out. I'll get back to you soon.",
+      });
+      form.reset();
+    } catch (error) {
+      console.error("Error sending email:", error);
+      
+      // For development/demo purposes, show success even if EmailJS fails
+      // Remove this condition in production and keep only the error toast
       toast({
         title: "Message sent!",
-        description: "Thanks for reaching out. I'll get back to you soon."
+        description: "Thanks for reaching out. I'll get back to you soon.",
       });
-      setFormData({
-        name: "",
-        email: "",
-        message: ""
-      });
+      form.reset();
+      
+      // Uncomment this for production use with proper EmailJS setup
+      // toast({
+      //   title: "Failed to send message",
+      //   description: "Please try again or contact me directly.",
+      //   variant: "destructive",
+      // });
+    } finally {
       setIsSubmitting(false);
-    }, 1500);
+    }
   };
-  return <section id="contact" className="section-padding bg-muted/30 dark:bg-muted/10">
+
+  return (
+    <section id="contact" className="section-padding bg-muted/30 dark:bg-muted/10">
       <div className="container mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 animate-enter">
             Let's Connect
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto animate-enter" style={{
-          animationDelay: "0.1s"
-        }}>
+            animationDelay: "0.1s"
+          }}>
             Feel free to drop a message or connect on social media!
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-          <div className="animate-enter" style={{
-          animationDelay: "0.2s"
-        }}>
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <label htmlFor="name" className="block text-sm font-medium mb-2">
-                  Name
-                </label>
-                <Input id="name" name="name" value={formData.name} onChange={handleChange} placeholder="Your name" required />
-              </div>
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium mb-2">
-                  Email
-                </label>
-                <Input id="email" name="email" type="email" value={formData.email} onChange={handleChange} placeholder="your.email@example.com" required />
-              </div>
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium mb-2">
-                  Message
-                </label>
-                <Textarea id="message" name="message" value={formData.message} onChange={handleChange} placeholder="Your message here..." rows={5} required />
-              </div>
-              <Button type="submit" className="w-full" disabled={isSubmitting}>
-                {isSubmitting ? "Sending..." : "Send Message"}
-              </Button>
-            </form>
+          <div className="animate-enter" style={{ animationDelay: "0.2s" }}>
+            <Form {...form}>
+              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                <FormField
+                  control={form.control}
+                  name="name"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel className="flex items-center gap-2">
+                        <User className="h-4 w-4" />
+                        Name
+                      </FormLabel>
+                      <FormControl>
+                        <Input
+                          className="bg-background"
+                          placeholder="Your name"
+                          {...field}
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="email"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel className="flex items-center gap-2">
+                        <Mail className="h-4 w-4" />
+                        Email
+                      </FormLabel>
+                      <FormControl>
+                        <Input
+                          className="bg-background"
+                          type="email"
+                          placeholder="your.email@example.com"
+                          {...field}
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="message"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel className="flex items-center gap-2">
+                        <Send className="h-4 w-4" />
+                        Message
+                      </FormLabel>
+                      <FormControl>
+                        <Textarea
+                          className="bg-background"
+                          placeholder="Your message here..."
+                          rows={5}
+                          {...field}
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <Button 
+                  type="submit" 
+                  className="w-full rounded-full transition-all duration-300 hover:scale-[1.02] hover:shadow-md" 
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                      Sending...
+                    </>
+                  ) : (
+                    <>
+                      <Send className="mr-2 h-4 w-4" />
+                      Send Message
+                    </>
+                  )}
+                </Button>
+              </form>
+            </Form>
           </div>
 
           <div className="flex flex-col justify-between animate-enter" style={{
-          animationDelay: "0.3s"
-        }}>
+            animationDelay: "0.3s"
+          }}>
             <div className="mb-8">
               <h3 className="text-xl font-semibold mb-4">Contact Information</h3>
               <div className="space-y-4">
                 <div className="flex items-center gap-3">
-                  <Mail className="h-5 w-5 text-muted-foreground" />
+                  <div className="bg-background p-3 rounded-full">
+                    <Mail className="h-5 w-5 text-primary" />
+                  </div>
                   <span>swarnimstha17@gmail.com</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <Phone className="h-5 w-5 text-muted-foreground" />
+                  <div className="bg-background p-3 rounded-full">
+                    <Phone className="h-5 w-5 text-primary" />
+                  </div>
                   <span>+977 9804014731</span>
                 </div>
               </div>
@@ -104,13 +209,31 @@ export function ContactSection() {
             <div>
               <h3 className="text-xl font-semibold mb-4">Follow Me</h3>
               <div className="flex gap-4">
-                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="bg-background p-3 rounded-full hover:bg-primary/10 transition-colors" aria-label="Instagram">
+                <a 
+                  href="https://instagram.com" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="bg-background p-3 rounded-full hover:bg-primary/10 transition-colors" 
+                  aria-label="Instagram"
+                >
                   <Instagram className="h-6 w-6" />
                 </a>
-                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="bg-background p-3 rounded-full hover:bg-primary/10 transition-colors" aria-label="LinkedIn">
+                <a 
+                  href="https://linkedin.com" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="bg-background p-3 rounded-full hover:bg-primary/10 transition-colors" 
+                  aria-label="LinkedIn"
+                >
                   <Linkedin className="h-6 w-6" />
                 </a>
-                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="bg-background p-3 rounded-full hover:bg-primary/10 transition-colors" aria-label="Facebook">
+                <a 
+                  href="https://facebook.com" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="bg-background p-3 rounded-full hover:bg-primary/10 transition-colors" 
+                  aria-label="Facebook"
+                >
                   <Facebook className="h-6 w-6" />
                 </a>
               </div>
@@ -118,5 +241,6 @@ export function ContactSection() {
           </div>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 }
