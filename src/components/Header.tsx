@@ -103,7 +103,7 @@ export function Header() {
             size="sm"
             className="ml-2"
             onClick={() => {
-              window.open("/resume.pdf", "_blank");
+              window.open("/swarnim/resume.pdf", "_blank");
             }}
           >
             Download Resume
@@ -218,7 +218,7 @@ export function Header() {
             size="sm"
             className="mx-4"
             onClick={() => {
-              window.open("/resume.pdf", "_blank");
+              window.open("/swarnim/resume.pdf", "_blank");
               setIsMobileMenuOpen(false);
             }}
           >

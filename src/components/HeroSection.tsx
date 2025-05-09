@@ -156,7 +156,7 @@ export function HeroSection() {
             >
               <Button 
                 size="lg" 
-                onClick={() => window.open("/resume.pdf", "_blank")} 
+                onClick={() => window.open("/swarnim/resume.pdf", "_blank")} 
                 className="rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/30 hover:bg-blue-600 dark:hover:bg-blue-700"
               >
                 <Download size={18} className="mr-2" /> 
@@ -180,7 +180,7 @@ export function HeroSection() {
             </motion.div>
           </motion.div>
           
-          {/* Image Section */}
+          {/* Image Section with updated image URL */}
           <motion.div 
             className="w-full md:w-1/2 flex flex-col items-center justify-center"
             variants={fadeInUp}
@@ -192,7 +192,7 @@ export function HeroSection() {
               {/* Background glow */}
               <div className="w-72 h-72 md:w-96 md:h-96 rounded-full bg-gradient-to-br from-blue-400/60 to-purple-500/60 dark:from-blue-600/60 dark:to-purple-700/60 absolute -z-10 blur-3xl opacity-70 dark:opacity-90 animate-pulse"></div>
               
-              {/* Profile image with glow and hover effect */}
+              {/* Profile image with glow and hover effect - updated with direct link */}
               <div 
                 className="relative transition-transform duration-500 hover:scale-[1.02] group"
                 style={{ transform: `translateY(${-offset * 0.3}px)` }}
@@ -204,11 +204,11 @@ export function HeroSection() {
                   {/* Second layer glow that intensifies on hover */}
                   <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-blue-500/20 to-purple-500/20 blur-sm -m-0.5 transition-all duration-300 group-hover:from-blue-500/40 group-hover:to-purple-500/40 group-hover:blur-md"></div>
                   
-                  {/* Image with hover effect */}
+                  {/* Image with hover effect - updated with direct link */}
                   <img 
                     alt="Swarnim Shrestha" 
                     className="w-72 h-72 md:w-96 md:h-96 rounded-2xl shadow-xl object-cover relative z-10 border-2 border-white/20 dark:border-white/10 transition-all duration-500 group-hover:border-white/40 dark:group-hover:border-white/20"
-                    src="/lovable-uploads/e4a4c165-9fe0-426d-afdb-164844acffd2.png" 
+                    src="https://i.postimg.cc/hGN1qjnK/Swarnim-3.png" 
                     style={{ 
                       transition: "transform 0.5s ease-out",
                     }}
