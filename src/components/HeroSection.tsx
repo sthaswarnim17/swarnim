@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { ArrowDown, Download } from "lucide-react";
 import AnimatedTitles from "./AnimatedTitles";
@@ -43,7 +44,15 @@ export function HeroSection() {
         }} className="w-full md:w-1/2 flex flex-col items-center justify-center animate-enter px-0 my-0 py-[16px]">
             <div className="relative flex flex-col items-center">
               <div className="w-64 h-64 md:w-80 md:h-80 rounded-full bg-gradient-to-br from-blue-400/90 to-purple-500/90 dark:from-blue-600/90 dark:to-purple-700/90 absolute -z-10 blur-2xl opacity-60 dark:opacity-80 animate-pulse"></div>
-              <img alt="Swarnim Shrestha" className="w-64 h-64 md:w-80 md:h-80 rounded-2xl shadow-xl object-cover" src="/lovable-uploads/e4a4c165-9fe0-426d-afdb-164844acffd2.png" />
+              {/* Add outer glow wrapper div */}
+              <div className="relative">
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-white/30 to-white/20 blur-md dark:from-white/20 dark:to-white/10 dark:blur-lg -m-0.5"></div>
+                <img 
+                  alt="Swarnim Shrestha" 
+                  className="w-64 h-64 md:w-80 md:h-80 rounded-2xl shadow-xl object-cover relative z-10 border-2 border-white/10" 
+                  src="/lovable-uploads/e4a4c165-9fe0-426d-afdb-164844acffd2.png" 
+                />
+              </div>
             </div>
           </div>
         </div>
