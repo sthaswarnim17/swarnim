@@ -21,4 +21,9 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  // Explicitly specify build output directory
+  build: {
+    outDir: 'dist',
+    emptyOutDir: true,
+  },
 }));

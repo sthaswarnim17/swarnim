@@ -31,6 +31,13 @@
             l.pathname.slice(0, -1) + decoded + l.hash
           );
         }
+        
+        // Parse the query string for the 'p' parameter from 404.html
+        var p = /[?&]p=([^&]*)/.exec(l.search);
+        if (p && p.length > 1) {
+          var path = p[1].replace(/~and~/g, '&');
+          window.history.replaceState(null, null, l.pathname.split('?')[0] + path);
+        }
       }(window.location))
     </script>
     <!-- Add base tag to ensure all relative paths are resolved correctly -->

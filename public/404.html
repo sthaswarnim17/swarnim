@@ -9,10 +9,14 @@
     // MIT License
     // https://github.com/rafgraph/spa-github-pages
     (function() {
-      // This works for all paths except direct hits to the 404.html
       var segmentCount = 1; // Keep as 1 for the /swarnim/ repo path
       var l = window.location;
       
+      // Don't redirect if we're already on the 404.html page
+      if (l.pathname.indexOf('404.html') !== -1) {
+        return;
+      }
+
       l.replace(
         l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
         '/swarnim/?p=' +
