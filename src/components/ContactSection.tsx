@@ -8,6 +8,7 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import emailjs from '@emailjs/browser';
+import SocialLink from "@/components/SocialLink";
 import {
   Form,
   FormControl,
@@ -179,10 +180,8 @@ export function ContactSection() {
             </Form>
           </div>
 
-          <div className="flex flex-col justify-between animate-enter" style={{
-            animationDelay: "0.3s"
-          }}>
-            <div className="mb-8">
+          <div className="flex flex-col gap-8 animate-enter" style={{ animationDelay: "0.3s" }}>
+            <div>
               <h3 className="text-xl font-semibold mb-4">Contact Information</h3>
               <div className="space-y-4">
                 <div className="flex items-center gap-3">
@@ -200,36 +199,27 @@ export function ContactSection() {
               </div>
             </div>
 
-            <div>
-              <h3 className="text-xl font-semibold mb-4">Follow Me</h3>
-              <div className="flex gap-4">
-                <a 
-                  href="https://instagram.com" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="bg-background p-3 rounded-full hover:bg-primary/10 transition-colors" 
-                  aria-label="Instagram"
-                >
-                  <Instagram className="h-6 w-6" />
-                </a>
-                <a 
-                  href="https://linkedin.com" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="bg-background p-3 rounded-full hover:bg-primary/10 transition-colors" 
-                  aria-label="LinkedIn"
-                >
-                  <Linkedin className="h-6 w-6" />
-                </a>
-                <a 
-                  href="https://facebook.com" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="bg-background p-3 rounded-full hover:bg-primary/10 transition-colors" 
-                  aria-label="Facebook"
-                >
-                  <Facebook className="h-6 w-6" />
-                </a>
+            <div className="mt-auto">
+              <h3 className="text-2xl font-semibold mb-6 text-center">Let's Connect!</h3>
+              <div className="flex justify-center gap-6">
+                <SocialLink 
+                  icon={Instagram} 
+                  href="https://www.instagram.com/sthaswarnim17/" 
+                  label="Follow on Instagram"
+                  hoverColor="#E1306C"
+                />
+                <SocialLink 
+                  icon={Facebook} 
+                  href="https://www.facebook.com/sthaswarnim17/" 
+                  label="Connect on Facebook"
+                  hoverColor="#1877F2"
+                />
+                <SocialLink 
+                  icon={Linkedin} 
+                  href="https://www.linkedin.com/in/sthaswarnim17/" 
+                  label="Connect on LinkedIn"
+                  hoverColor="#0A66C2"
+                />
               </div>
             </div>
           </div>

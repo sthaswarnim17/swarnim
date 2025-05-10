@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap');
 
 @tailwind base;
@@ -223,4 +222,20 @@
   p {
     font-size: 0.95rem !important;
   }
+}
+
+/* Social Media Icon Colors */
+.instagram-hover:hover {
+  --icon-color: #E1306C;
+  box-shadow: 0 0 15px rgba(225, 48, 108, 0.5);
+}
+
+.facebook-hover:hover {
+  --icon-color: #1877F2;
+  box-shadow: 0 0 15px rgba(24, 119, 242, 0.5);
+}
+
+.linkedin-hover:hover {
+  --icon-color: #0A66C2;
+  box-shadow: 0 0 15px rgba(10, 102, 194, 0.5);
 }
