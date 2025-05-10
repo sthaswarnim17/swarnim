@@ -114,6 +114,10 @@
   .link-underline {
     @apply relative after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-primary after:origin-left after:scale-x-0 after:transition-transform after:duration-300 hover:after:scale-x-100;
   }
+  
+  .text-gradient-primary {
+    @apply bg-gradient-to-r from-blue-500 to-purple-600 dark:from-blue-400 dark:to-purple-400 bg-clip-text text-transparent;
+  }
 }
 
 /* Animation for the gradient background */
@@ -179,4 +183,18 @@
 /* Dark mode adjustment for particles */
 .dark .particle {
   background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Glowing effect for elements */
+@keyframes glow {
+  0%, 100% {
+    filter: brightness(1) blur(5px);
+  }
+  50% {
+    filter: brightness(1.2) blur(7px);
+  }
+}
+
+.animate-glow {
+  animation: glow 4s ease-in-out infinite;
 }

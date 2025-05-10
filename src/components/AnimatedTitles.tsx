@@ -10,33 +10,49 @@ const TITLES = [
 export default function AnimatedTitles() {
   const [index, setIndex] = useState(0);
   const [show, setShow] = useState(true);
+  const [letters, setLetters] = useState<string[]>([]);
+  const [isComplete, setIsComplete] = useState(false);
+  const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
-    // Reduce each timeout by 0.25%
-    const outTimer = setTimeout(() => setShow(false), 2250 * 0.9975);
-    const inTimer = setTimeout(() => {
-      setIndex((prev) => (prev + 1) % TITLES.length);
-      setShow(true);
-    }, 2450 * 0.9975);
-
-    return () => {
-      clearTimeout(outTimer);
-      clearTimeout(inTimer);
-    };
-  }, [index, show]);
+    if (show && !isComplete && !isDeleting) {
+      if (letters.length < TITLES[index].length) {
+        const timer = setTimeout(() => {
+          setLetters(TITLES[index].substring(0, letters.length + 1).split(''));
+        }, 100);
+        return () => clearTimeout(timer);
+      } else {
+        setIsComplete(true);
+        const timer = setTimeout(() => {
+          setIsDeleting(true);
+          setIsComplete(false);
+        }, 1500);
+        return () => clearTimeout(timer);
+      }
+    } else if (isDeleting) {
+      if (letters.length > 0) {
+        const timer = setTimeout(() => {
+          setLetters(letters.slice(0, -1));
+        }, 50);
+        return () => clearTimeout(timer);
+      } else {
+        setIsDeleting(false);
+        setIndex((prev) => (prev + 1) % TITLES.length);
+      }
+    }
+  }, [index, letters, isComplete, isDeleting, show]);
 
   return (
     <span className="relative inline-block w-full">
       <span
-        className={`
+        className="
           absolute left-0 w-full whitespace-nowrap overflow-hidden
-          transition-all duration-450
-          ${show ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-3"}
           text-gradient-primary font-semibold
-        `}
+        "
         aria-live="polite"
       >
-        {TITLES[index]}
+        {letters.join('')}
+        <span className="animate-blink">|</span>
       </span>
     </span>
   );
