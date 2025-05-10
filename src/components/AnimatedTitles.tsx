@@ -3,8 +3,8 @@ import React, { useEffect, useState } from "react";
 
 const TITLES = [
   "Graphics Designer",
-  "Creative Thinker", 
-  "Visual Storyteller"
+  "Video Editor", 
+  "Creative Thinker"
 ];
 
 export default function AnimatedTitles() {

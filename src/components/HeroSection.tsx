@@ -5,8 +5,11 @@ import { motion } from "framer-motion";
 import AnimatedTitles from "./AnimatedTitles";
 import { GradientButton } from "./GradientButton";
 import { ParticlesBackground } from "./ParticlesBackground";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 export function HeroSection() {
+  const isMobile = useIsMobile();
+  
   const scrollToContact = () => {
     const contactSection = document.getElementById("contact");
     if (contactSection) {
@@ -32,8 +35,10 @@ export function HeroSection() {
     };
   }, []);
   
-  // Track mouse for subtle image movement
+  // Track mouse for subtle image movement (disabled on mobile)
   useEffect(() => {
+    if (isMobile) return;
+    
     const handleMouseMove = (e: MouseEvent) => {
       const { clientX, clientY } = e;
       const x = (clientX / window.innerWidth - 0.5) * 20;
@@ -46,7 +51,7 @@ export function HeroSection() {
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
     };
-  }, []);
+  }, [isMobile]);
 
   // Animated scroll indicator
   const [isVisible, setIsVisible] = useState(true);
@@ -98,20 +103,20 @@ export function HeroSection() {
         <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 to-purple-800/10 dark:from-blue-900/20 dark:to-purple-900/20 animate-gradient"></div>
       </div>
       
-      <div className="container mx-auto max-w-6xl">
+      <div className="container mx-auto max-w-6xl px-4">
         <motion.div 
-          className="flex flex-col-reverse md:flex-row items-center justify-between gap-8 md:gap-16"
+          className="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-16"
           initial="hidden"
           animate="visible"
           variants={staggerChildren}
         >
-          {/* Content Section */}
+          {/* Content Section - Mobile Optimized */}
           <motion.div 
-            className="w-full md:w-1/2 space-y-6"
+            className="w-full md:w-1/2 space-y-5 md:space-y-6 text-center md:text-left order-2 md:order-1 mt-6 md:mt-0"
             variants={staggerChildren}
           >
             <motion.h1 
-              className="text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-tight"
               variants={fadeInUp}
             >
               Hi! I'm <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-600 dark:from-blue-400 dark:to-purple-400 inline-block">
@@ -121,14 +126,14 @@ export function HeroSection() {
             
             {/* Animated Titles with typewriter effect */}
             <motion.div 
-              className="h-[46px] font-medium"
+              className="h-[36px] sm:h-[46px] font-medium"
               variants={fadeInUp}
             >
               <AnimatedTitles />
             </motion.div>
             
             <motion.p 
-              className="text-base md:text-lg text-muted-foreground"
+              className="text-base md:text-lg text-muted-foreground max-w-md mx-auto md:mx-0"
               variants={fadeInUp}
             >
               A Computer Engineering student at Khwopa College of Engineering, 
@@ -136,15 +141,16 @@ export function HeroSection() {
             </motion.p>
             
             <motion.div 
-              className="flex flex-wrap gap-4 pt-4"
+              className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4 pt-4 w-full"
               variants={fadeInUp}
             >
               <GradientButton 
                 size="lg" 
-                onClick={() => window.open("/swarnim/resume.pdf", "_blank")}
+                onClick={() => window.open("/resume.pdf", "_blank")}
                 gradientFrom="from-blue-600" 
                 gradientTo="to-blue-800"
                 pulseColor="blue-500"
+                className="w-full sm:w-auto"
               >
                 <Download size={18} className="mr-2" /> Download Resume
               </GradientButton>
@@ -153,7 +159,7 @@ export function HeroSection() {
                 variant="outline" 
                 size="lg" 
                 onClick={scrollToContact} 
-                className="bg-none border border-purple-300/20 hover:bg-purple-50/10 dark:hover:bg-purple-900/30 transition-all duration-300"
+                className="w-full sm:w-auto bg-none border border-purple-300/20 hover:bg-purple-50/10 dark:hover:bg-purple-900/30 transition-all duration-300"
                 gradientFrom="from-purple-500/0"
                 gradientTo="to-purple-700/0"
                 pulseColor="purple-500"
@@ -163,28 +169,28 @@ export function HeroSection() {
             </motion.div>
           </motion.div>
           
-          {/* Image Section with updated image URL */}
+          {/* Image Section with updated image URL - Mobile Optimized */}
           <motion.div 
-            className="w-full md:w-1/2 flex flex-col items-center justify-center"
+            className="w-full md:w-1/2 flex flex-col items-center justify-center order-1 md:order-2"
             variants={fadeInUp}
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
             <div className="relative flex flex-col items-center">
-              {/* Background glow */}
-              <div className="w-72 h-72 md:w-96 md:h-96 rounded-full bg-gradient-to-br from-blue-500/60 to-purple-600/60 dark:from-blue-600/60 dark:to-purple-700/60 absolute -z-10 blur-3xl opacity-70 dark:opacity-90 animate-pulse"></div>
+              {/* Background glow - enhanced for mobile */}
+              <div className="w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full bg-gradient-to-br from-blue-500/60 to-purple-600/60 dark:from-blue-600/60 dark:to-purple-700/60 absolute -z-10 blur-3xl opacity-70 dark:opacity-90 animate-pulse"></div>
               
-              {/* Profile image with glow and hover effect */}
+              {/* Profile image with animated glow effect */}
               <motion.div 
                 className="relative transition-transform duration-500 hover:scale-[1.02] group"
                 style={{ 
-                  transform: `translateY(${-offset * 0.3}px) translateX(${mousePosition.x * 0.2}px) translateY(${mousePosition.y * 0.2}px)` 
+                  transform: isMobile ? undefined : `translateY(${-offset * 0.3}px) translateX(${mousePosition.x * 0.2}px) translateY(${mousePosition.y * 0.2}px)` 
                 }}
                 whileHover={{ scale: 1.03 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
-                {/* Enhanced glow effect */}
+                {/* Enhanced glow effect - optimized for mobile */}
                 <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-white/40 to-white/30 blur-md dark:from-white/30 dark:to-white/20 dark:blur-lg -m-1 transition-opacity duration-300 group-hover:opacity-80"></div>
                 
                 <div className="relative group">
@@ -194,12 +200,17 @@ export function HeroSection() {
                   {/* Image with hover effect - updated with requested image link */}
                   <img 
                     alt="Swarnim Shrestha" 
-                    className="w-72 h-72 md:w-96 md:h-96 rounded-2xl shadow-xl object-cover relative z-10 border-2 border-white/20 dark:border-white/10 transition-all duration-500 group-hover:border-white/40 dark:group-hover:border-white/20"
+                    className="w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-2xl shadow-xl object-cover relative z-10 border-2 border-white/20 dark:border-white/10 transition-all duration-500 group-hover:border-white/40 dark:group-hover:border-white/20"
                     src="https://i.postimg.cc/hGN1qjnK/Swarnim-3.png"
                     style={{ 
                       transition: "transform 0.5s ease-out",
                     }}
                   />
+                  
+                  {/* Animated border effect for mobile enhancement */}
+                  <div className="absolute inset-0 rounded-2xl z-20 pointer-events-none">
+                    <div className="absolute inset-0 rounded-2xl border-2 border-transparent bg-gradient-to-r from-blue-500/0 via-purple-500/50 to-blue-500/0 bg-[length:200%_100%] animate-[gradient-shift_4s_ease-in-out_infinite] opacity-0 group-hover:opacity-70"></div>
+                  </div>
                   
                   {/* Shine effect on hover */}
                   <div className="absolute inset-0 rounded-2xl bg-gradient-to-tr from-white/0 via-white/30 to-white/0 opacity-0 group-hover:opacity-60 transition-opacity duration-700 z-10 pointer-events-none"></div>

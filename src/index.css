@@ -198,3 +198,29 @@
 .animate-glow {
   animation: glow 4s ease-in-out infinite;
 }
+
+/* Enhanced mobile animations */
+@keyframes pulse-border {
+  0%, 100% {
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+  50% {
+    border-color: rgba(255, 255, 255, 0.8);
+  }
+}
+
+.animate-border {
+  animation: pulse-border 2s ease-in-out infinite;
+}
+
+/* Responsive typography adjustments */
+@media screen and (max-width: 640px) {
+  h1 {
+    font-size: clamp(2rem, 8vw, 3.5rem) !important;
+    line-height: 1.1 !important;
+  }
+  
+  p {
+    font-size: 0.95rem !important;
+  }
+}
