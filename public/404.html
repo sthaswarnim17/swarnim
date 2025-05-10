@@ -5,26 +5,8 @@
   <meta charset="utf-8">
   <title>Redirecting...</title>
   <script>
-    // Single Page Apps for GitHub Pages
-    // MIT License
-    // https://github.com/rafgraph/spa-github-pages
-    (function() {
-      var segmentCount = 1; // Keep as 1 for the /swarnim/ repo path
-      var l = window.location;
-      
-      // Don't redirect if we're already on the 404.html page
-      if (l.pathname.indexOf('404.html') !== -1) {
-        return;
-      }
-
-      l.replace(
-        l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
-        '/swarnim/?p=' +
-        l.pathname.slice(1).split('/').slice(segmentCount).join('/').replace(/&/g, '~and~') +
-        (l.search ? '&q=' + l.search.slice(1).replace(/&/g, '~and~') : '') +
-        l.hash
-      );
-    })();
+    // Redirect to the hash-based URL
+    window.location.replace('/swarnim/#' + window.location.pathname.slice('/swarnim'.length));
   </script>
 </head>
 <body>
