@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 
 const TITLES = [
-  "Graphic Designer",
+  "Graphics Designer",
   "Creative Thinker", 
   "Visual Storyteller"
 ];

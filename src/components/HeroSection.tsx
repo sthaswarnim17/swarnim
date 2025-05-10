@@ -3,7 +3,6 @@ import { Download, Mail, ArrowDown } from "lucide-react";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import AnimatedTitles from "./AnimatedTitles";
-import TypewriterEffect from "./TypewriterEffect";
 import { GradientButton } from "./GradientButton";
 import { ParticlesBackground } from "./ParticlesBackground";
 
@@ -120,15 +119,7 @@ export function HeroSection() {
               </span>
             </motion.h1>
             
-            {/* Tagline with typewriter effect */}
-            <motion.p 
-              className="text-lg md:text-xl font-medium text-muted-foreground"
-              variants={fadeInUp}
-            >
-              <TypewriterEffect text="Blending code, creativity & clarity into digital experiences" delay={30} />
-            </motion.p>
-            
-            {/* Animated Titles with new typewriter effect */}
+            {/* Animated Titles with typewriter effect */}
             <motion.div 
               className="h-[46px] font-medium"
               variants={fadeInUp}
@@ -200,11 +191,11 @@ export function HeroSection() {
                   {/* Second layer glow that intensifies on hover */}
                   <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-blue-500/20 to-purple-500/20 blur-sm -m-0.5 transition-all duration-300 group-hover:from-blue-500/40 group-hover:to-purple-500/40 group-hover:blur-md"></div>
                   
-                  {/* Image with hover effect - updated with direct link */}
+                  {/* Image with hover effect - updated with requested image link */}
                   <img 
                     alt="Swarnim Shrestha" 
                     className="w-72 h-72 md:w-96 md:h-96 rounded-2xl shadow-xl object-cover relative z-10 border-2 border-white/20 dark:border-white/10 transition-all duration-500 group-hover:border-white/40 dark:group-hover:border-white/20"
-                    src="https://i.postimg.cc/VLmTyDBG/IMG-7149.jpg"
+                    src="https://i.postimg.cc/hGN1qjnK/Swarnim-3.png"
                     style={{ 
                       transition: "transform 0.5s ease-out",
                     }}
