@@ -239,3 +239,22 @@
   --icon-color: #0A66C2;
   box-shadow: 0 0 15px rgba(10, 102, 194, 0.5);
 }
+
+.social-link-hover {
+  @apply transition-all duration-300 hover:scale-110 hover:shadow-lg;
+}
+  
+.social-icon-instagram:hover {
+  --icon-color: #E1306C;
+  filter: drop-shadow(0 0 5px rgba(225, 48, 108, 0.7));
+}
+  
+.social-icon-facebook:hover {
+  --icon-color: #1877F2;
+  filter: drop-shadow(0 0 5px rgba(24, 119, 242, 0.7));
+}
+  
+.social-icon-linkedin:hover {
+  --icon-color: #0A66C2;
+  filter: drop-shadow(0 0 5px rgba(10, 102, 194, 0.7));
+}
