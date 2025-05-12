@@ -139,8 +139,9 @@ export function HeroSection() {
               blending tech skills with creativity to design visually engaging digital content.
             </motion.p>
             
+            {/* Added additional bottom padding for mobile - fixed spacing issue */}
             <motion.div 
-              className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4 pt-4 w-full"
+              className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4 pt-4 pb-12 sm:pb-0 w-full"
               variants={fadeInUp}
             >
               <GradientButton 
@@ -149,7 +150,7 @@ export function HeroSection() {
                 gradientFrom="from-blue-600" 
                 gradientTo="to-blue-800"
                 pulseColor="blue-500"
-                className="w-full sm:w-auto"
+                className="w-full sm:w-auto mb-2 sm:mb-0"
               >
                 <Download size={18} className="mr-2" /> Download Resume
               </GradientButton>
@@ -158,7 +159,7 @@ export function HeroSection() {
                 variant="outline" 
                 size="lg" 
                 onClick={scrollToContact} 
-                className="w-full sm:w-auto bg-none border border-purple-300/20 hover:bg-purple-50/10 dark:hover:bg-purple-900/30 transition-all duration-300"
+                className="w-full sm:w-auto bg-none border border-purple-300/20 hover:bg-purple-50/10 dark:hover:bg-purple-900/30 transition-all duration-300 mb-2 sm:mb-0"
                 gradientFrom="from-purple-500/0"
                 gradientTo="to-purple-700/0"
                 pulseColor="purple-500"
@@ -220,9 +221,9 @@ export function HeroSection() {
         </motion.div>
       </div>
       
-      {/* Scroll indicator with improved mobile positioning */}
+      {/* Scroll indicator with improved mobile positioning and increased spacing */}
       <motion.div 
-        className={`absolute bottom-6 sm:bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center cursor-pointer transition-opacity duration-500 ${isVisible ? 'opacity-80' : 'opacity-0'} z-20`}
+        className={`absolute bottom-6 sm:bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center cursor-pointer transition-opacity duration-500 ${isVisible ? 'opacity-80' : 'opacity-0'} z-20 mt-16 sm:mt-0`}
         onClick={() => {
           const aboutSection = document.getElementById("about");
           if (aboutSection) {
