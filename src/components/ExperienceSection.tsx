@@ -37,24 +37,24 @@ function ExperienceItem({ title, organization, period, description, delay = "0s"
 export function ExperienceSection() {
   const experiences = [
     {
-      title: "Secretary",
-      organization: "Interact Club",
+      title: "Graphic Designer",
+      organization: "Hult Prize at Khwopa College of Engineering",
       period: "2024-2025",
-      description: "Managing club communications and supporting leadership initiatives.",
+      description: "Created visual assets for the Hult Prize competition at Khwopa College of Engineering.",
       delay: "0s"
+    },
+    {
+      title: "Secretary",
+      organization: "Interact Club of Bishnu Memorial",
+      period: "2022-2023",
+      description: "Managing club communications and supporting leadership initiatives.",
+      delay: "0.1s"
     },
     {
       title: "IT Head",
       organization: "Interact Club of Bishnu Memorial",
-      period: "2023-2024",
+      period: "2021-2022",
       description: "Led digital initiatives and managed technical aspects of club events.",
-      delay: "0.1s"
-    },
-    {
-      title: "Graphic Designer",
-      organization: "Hult Prize at Khwopa College of Engineering",
-      period: "2023",
-      description: "Created visual assets for the Hult Prize competition at Khwopa College of Engineering.",
       delay: "0.2s"
     }
   ];
