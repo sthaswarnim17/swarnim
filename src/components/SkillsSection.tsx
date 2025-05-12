@@ -1,7 +1,7 @@
 
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Html, Css, Javascript, React, Figma, Image, Video, Palette, Film, Layers } from "lucide-react";
+import { Code, PenTool, Film } from "lucide-react";
 
 interface SkillCardProps {
   title: string;
@@ -36,19 +36,19 @@ export function SkillsSection() {
   const skillCategories = [
     {
       title: "Web Development",
-      icon: <Html className="w-8 h-8" />,
+      icon: <Code className="w-8 h-8" />,
       skills: ["HTML", "CSS", "JavaScript", "React.js (basic)"],
       delay: "0s",
     },
     {
       title: "Design",
-      icon: <Figma className="w-8 h-8" />,
+      icon: <PenTool className="w-8 h-8" />,
       skills: ["Figma", "Canva", "UI/UX", "Photoshop (basic)"],
       delay: "0.1s",
     },
     {
       title: "Video Editing",
-      icon: <Video className="w-8 h-8" />,
+      icon: <Film className="w-8 h-8" />,
       skills: ["Adobe Premiere Pro", "DaVinci Resolve", "Filmora"],
       delay: "0.2s",
     }
