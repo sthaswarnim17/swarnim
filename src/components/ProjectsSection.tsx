@@ -1,68 +1,119 @@
+
 import React from 'react';
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Github, ExternalLink } from "lucide-react";
+
+interface ProjectCardProps {
+  title: string;
+  description: string;
+  image: string;
+  liveUrl?: string;
+  githubUrl?: string;
+  technologies: string[];
+  inProgress?: boolean;
+}
+
+function ProjectCard({ 
+  title, 
+  description, 
+  image, 
+  liveUrl, 
+  githubUrl, 
+  technologies, 
+  inProgress = false 
+}: ProjectCardProps) {
+  return (
+    <div className="bg-card rounded-lg shadow-md overflow-hidden">
+      <div className="relative">
+        <img 
+          src={image} 
+          alt={title} 
+          className="w-full h-48 object-cover transition-transform hover:scale-105 duration-500"
+        />
+        {inProgress && (
+          <div className="absolute top-3 right-3">
+            <Badge variant="secondary" className="bg-yellow-500/10 text-yellow-500 border-yellow-500/20">
+              In Progress
+            </Badge>
+          </div>
+        )}
+      </div>
+      <div className="p-6">
+        <h3 className="text-xl font-semibold mb-2">{title}</h3>
+        <p className="text-muted-foreground mb-4">{description}</p>
+        
+        <div className="flex flex-wrap gap-2 mb-4">
+          {technologies.map((tech) => (
+            <Badge key={tech} variant="outline" className="text-xs">
+              {tech}
+            </Badge>
+          ))}
+        </div>
+        
+        <div className="flex gap-3 mt-4">
+          {githubUrl && (
+            <Button variant="outline" size="sm" className="gap-2" asChild>
+              <a href={githubUrl} target="_blank" rel="noopener noreferrer">
+                <Github className="h-4 w-4" />
+                <span>Code</span>
+              </a>
+            </Button>
+          )}
+          {liveUrl && (
+            <Button size="sm" className="gap-2" asChild>
+              <a href={liveUrl} target="_blank" rel="noopener noreferrer">
+                <ExternalLink className="h-4 w-4" />
+                <span>Live Demo</span>
+              </a>
+            </Button>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export function ProjectsSection() {
+  const projects: ProjectCardProps[] = [
+    {
+      title: "KhwopaConnect",
+      description: "An e-commerce platform promoting local Bhaktapur goods, built during a hackathon.",
+      image: "https://i.postimg.cc/VLmTyDBG/IMG-7149.jpg",
+      githubUrl: "#",
+      technologies: ["HTML", "CSS", "JavaScript"]
+    },
+    {
+      title: "Portfolio Website",
+      description: "My personal portfolio website showcasing my skills, projects, and experience.",
+      image: "https://placehold.co/600x400",
+      liveUrl: "https://www.swarnimstha.com.np",
+      githubUrl: "https://github.com/sthaswarnim17/sthaswarnim17.github.io",
+      technologies: ["React", "Tailwind CSS", "TypeScript"]
+    },
+    {
+      title: "Future Project",
+      description: "An exciting project coming soon. Stay tuned for updates!",
+      image: "https://placehold.co/600x400",
+      inProgress: true,
+      technologies: ["Coming Soon"]
+    }
+  ];
+
   return (
-    <section id="projects" className="section-padding pt-16 pb-16 bg-secondary">
-      <div className="container mx-auto max-w-5xl">
-        <h2 className="text-3xl font-bold text-center mb-8">Projects</h2>
+    <section id="projects" className="section-padding">
+      <div className="container mx-auto">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 animate-enter">Projects</h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto animate-enter" style={{ animationDelay: "0.1s" }}>
+            Showcasing some of my recent work and ongoing projects
+          </p>
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {/* Project 1 */}
-          <div className="bg-card rounded-lg shadow-md overflow-hidden">
-            <img 
-              src="https://i.postimg.cc/VLmTyDBG/IMG-7149.jpg" 
-              alt="Project" 
-              className="w-full h-full object-cover transition-transform hover:scale-105 duration-500"
-            />
-            <div className="p-4">
-              <h3 className="text-lg font-semibold mb-2">Project Title 1</h3>
-              <p className="text-sm text-muted-foreground">Brief description of the project. Highlight key features and technologies used.</p>
-            </div>
-          </div>
-
-          {/* Project 2 */}
-          <div className="bg-card rounded-lg shadow-md overflow-hidden">
-            <img src="https://placehold.co/600x400" alt="Project" className="w-full h-48 object-cover" />
-            <div className="p-4">
-              <h3 className="text-lg font-semibold mb-2">Project Title 2</h3>
-              <p className="text-sm text-muted-foreground">Brief description of the project. Highlight key features and technologies used.</p>
-            </div>
-          </div>
-
-          {/* Project 3 */}
-          <div className="bg-card rounded-lg shadow-md overflow-hidden">
-            <img src="https://placehold.co/600x400" alt="Project" className="w-full h-48 object-cover" />
-            <div className="p-4">
-              <h3 className="text-lg font-semibold mb-2">Project Title 3</h3>
-              <p className="text-sm text-muted-foreground">Brief description of the project. Highlight key features and technologies used.</p>
-            </div>
-          </div>
-
-          {/* Project 4 */}
-          <div className="bg-card rounded-lg shadow-md overflow-hidden">
-            <img src="https://placehold.co/600x400" alt="Project" className="w-full h-48 object-cover" />
-            <div className="p-4">
-              <h3 className="text-lg font-semibold mb-2">Project Title 4</h3>
-              <p className="text-sm text-muted-foreground">Brief description of the project. Highlight key features and technologies used.</p>
-            </div>
-          </div>
-
-          {/* Project 5 */}
-          <div className="bg-card rounded-lg shadow-md overflow-hidden">
-            <img src="https://placehold.co/600x400" alt="Project" className="w-full h-48 object-cover" />
-            <div className="p-4">
-              <h3 className="text-lg font-semibold mb-2">Project Title 5</h3>
-              <p className="text-sm text-muted-foreground">Brief description of the project. Highlight key features and technologies used.</p>
-            </div>
-          </div>
-
-          {/* Project 6 */}
-          <div className="bg-card rounded-lg shadow-md overflow-hidden">
-            <img src="https://placehold.co/600x400" alt="Project" className="w-full h-48 object-cover" />
-            <div className="p-4">
-              <h3 className="text-lg font-semibold mb-2">Project Title 6</h3>
-              <p className="text-sm text-muted-foreground">Brief description of the project. Highlight key features and technologies used.</p>
-            </div>
-          </div>
+          {projects.map((project) => (
+            <ProjectCard key={project.title} {...project} />
+          ))}
         </div>
       </div>
     </section>

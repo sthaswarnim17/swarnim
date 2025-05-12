@@ -26,13 +26,13 @@ export function AboutSection() {
           <div className="w-full md:w-1/2 animate-enter" style={{ animationDelay: "0.2s" }}>
             <h2 className="text-3xl md:text-4xl font-bold mb-6">About Me</h2>
             <p className="text-lg mb-6">
-              I'm Swarnim, a creative mind who started with design as a passion and now blends it with tech. From social media posts to videos and event graphics, I enjoy crafting content that connects.
+              I'm Swarnim Shrestha, a passionate Computer Engineering student at Khwopa College of Engineering. My journey combines technology with creativity, allowing me to explore the intersection of innovation and design.
             </p>
             <p className="text-lg mb-6">
-              Currently pursuing my degree in Computer Engineering, I'm fascinated by the intersection of design and technology. My goal is to create visually stunning and meaningful experiences that solve real problems.
+              I love front-end development, UI/UX design, and creative media production including video editing and graphic design. The process of bringing ideas to life through visual storytelling fascinates me.
             </p>
             <p className="text-lg mb-6">
-              When I'm not designing or coding, you might find me exploring photography, watching films for inspiration, or experimenting with new creative tools.
+              As someone who is creative, curious, and collaborative, I thrive in environments where I can work with others to solve problems and create meaningful experiences through technology and design.
             </p>
           </div>
         </div>
