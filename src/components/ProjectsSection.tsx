@@ -12,6 +12,7 @@ interface ProjectCardProps {
   githubUrl?: string;
   technologies: string[];
   inProgress?: boolean;
+  aosDelay?: number;
 }
 
 function ProjectCard({ 
@@ -21,10 +22,15 @@ function ProjectCard({
   liveUrl, 
   githubUrl, 
   technologies, 
-  inProgress = false 
+  inProgress = false,
+  aosDelay = 0
 }: ProjectCardProps) {
   return (
-    <div className="bg-card rounded-lg shadow-md overflow-hidden">
+    <div 
+      className="bg-card rounded-lg shadow-md overflow-hidden"
+      data-aos="fade-up"
+      data-aos-delay={aosDelay}
+    >
       <div className="relative">
         <img 
           src={image} 
@@ -81,7 +87,8 @@ export function ProjectsSection() {
       description: "An e-commerce platform promoting local Bhaktapur goods, built during a hackathon.",
       image: "https://i.postimg.cc/VLmTyDBG/IMG-7149.jpg",
       githubUrl: "#",
-      technologies: ["HTML", "CSS", "JavaScript"]
+      technologies: ["HTML", "CSS", "JavaScript"],
+      aosDelay: 100
     },
     {
       title: "Portfolio Website",
@@ -89,14 +96,16 @@ export function ProjectsSection() {
       image: "https://placehold.co/600x400",
       liveUrl: "https://www.swarnimstha.com.np",
       githubUrl: "https://github.com/sthaswarnim17/sthaswarnim17.github.io",
-      technologies: ["React", "Tailwind CSS", "TypeScript"]
+      technologies: ["React", "Tailwind CSS", "TypeScript"],
+      aosDelay: 200
     },
     {
       title: "Future Project",
       description: "An exciting project coming soon. Stay tuned for updates!",
       image: "https://placehold.co/600x400",
       inProgress: true,
-      technologies: ["Coming Soon"]
+      technologies: ["Coming Soon"],
+      aosDelay: 300
     }
   ];
 
@@ -104,8 +113,8 @@ export function ProjectsSection() {
     <section id="projects" className="section-padding">
       <div className="container mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 animate-enter">Projects</h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto animate-enter" style={{ animationDelay: "0.1s" }}>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4" data-aos="fade-up">Projects</h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
             Showcasing some of my recent work and ongoing projects
           </p>
         </div>

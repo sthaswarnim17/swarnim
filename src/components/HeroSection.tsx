@@ -1,3 +1,4 @@
+
 import { Download, Mail, ArrowDown } from "lucide-react";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
@@ -221,24 +222,26 @@ export function HeroSection() {
         </motion.div>
       </div>
       
-      {/* Scroll indicator with improved mobile positioning and increased spacing */}
-      <motion.div 
-        className={`absolute bottom-6 sm:bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center cursor-pointer transition-opacity duration-500 ${isVisible ? 'opacity-80' : 'opacity-0'} z-20 mt-16 sm:mt-0`}
-        onClick={() => {
-          const aboutSection = document.getElementById("about");
-          if (aboutSection) {
-            aboutSection.scrollIntoView({ behavior: "smooth" });
-          }
-        }}
-        initial={{ opacity: 0, y: -10 }}
-        animate={{ opacity: isVisible ? 0.8 : 0, y: 0 }}
-        transition={{ delay: 1.5, duration: 0.5 }}
-      >
-        <span className="text-sm font-medium mb-1 sm:mb-2 text-muted-foreground">Scroll Down</span>
-        <div className="animate-bounce bg-primary/10 p-2 rounded-full shadow-sm">
-          <ArrowDown size={isMobile ? 20 : 24} className="text-primary" />
-        </div>
-      </motion.div>
+      {/* Scroll indicator with improved horizontal centering and spacing */}
+      <div className="w-full absolute bottom-6 sm:bottom-8 flex justify-center items-center mt-16 sm:mt-0 z-20">
+        <motion.div 
+          className={`flex flex-col items-center cursor-pointer transition-opacity duration-500 ${isVisible ? 'opacity-80' : 'opacity-0'}`}
+          onClick={() => {
+            const aboutSection = document.getElementById("about");
+            if (aboutSection) {
+              aboutSection.scrollIntoView({ behavior: "smooth" });
+            }
+          }}
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: isVisible ? 0.8 : 0, y: 0 }}
+          transition={{ delay: 1.5, duration: 0.5 }}
+        >
+          <span className="text-sm font-medium mb-1 sm:mb-2 text-muted-foreground">Scroll Down</span>
+          <div className="animate-bounce bg-primary/10 p-2 rounded-full shadow-sm">
+            <ArrowDown size={isMobile ? 20 : 24} className="text-primary" />
+          </div>
+        </motion.div>
+      </div>
     </section>
   );
 }
