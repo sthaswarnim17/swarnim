@@ -8,6 +8,7 @@ import { ExperienceSection } from "@/components/ExperienceSection";
 import { ToolsSection } from "@/components/ToolsSection";
 import { ContactSection } from "@/components/ContactSection";
 import { Footer } from "@/components/Footer";
+import { FeaturedProjectSection } from "@/components/FeaturedProjectSection";
 import { useEffect } from "react";
 
 const Index = () => {
@@ -26,6 +27,7 @@ const Index = () => {
       <main className="flex-grow">
         <HeroSection />
         <AboutSection />
+        <FeaturedProjectSection />
         <SkillsSection />
         <ProjectsSection />
         <ExperienceSection />
