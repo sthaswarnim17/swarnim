@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -184,12 +185,15 @@ export function ContactSection() {
             <div>
               <h3 className="text-xl font-semibold mb-4">Contact Information</h3>
               <div className="space-y-4">
-                <div className="flex items-center gap-3">
+                <a 
+                  href="mailto:contact@swarnimstha.com.np" 
+                  className="flex items-center gap-3 hover:text-primary transition-colors"
+                >
                   <div className="bg-background p-3 rounded-full">
                     <Mail className="h-5 w-5 text-primary" />
                   </div>
-                  <span>swarnimstha17@gmail.com</span>
-                </div>
+                  <span>contact@swarnimstha.com.np</span>
+                </a>
                 <div className="flex items-center gap-3">
                   <div className="bg-background p-3 rounded-full">
                     <Phone className="h-5 w-5 text-primary" />
