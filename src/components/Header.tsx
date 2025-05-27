@@ -103,7 +103,7 @@ export function Header() {
             size="sm"
             className="ml-2"
             onClick={() => {
-              window.open("/swarnim/resume.pdf", "_blank");
+              window.open("/swarnim/blob/main/public/Swarnim_Resume.pdf", "_blank");
             }}
           >
             Download Resume
