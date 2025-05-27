@@ -218,7 +218,7 @@ export function Header() {
             size="sm"
             className="mx-4"
             onClick={() => {
-              window.open("/swarnim/resume.pdf", "_blank");
+              window.open("/swarnim/blob/main/public/Swarnim_Resume.pdf", "_blank");
               setIsMobileMenuOpen(false);
             }}
           >
