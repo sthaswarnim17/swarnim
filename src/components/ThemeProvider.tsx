@@ -31,6 +31,9 @@ export function ThemeProvider({
   useEffect(() => {
     const root = window.document.documentElement;
     
+    // Add transition class before theme change
+    root.classList.add('theme-transition');
+    
     if (theme === "system") {
       const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
       root.classList.toggle("dark", prefersDark);
@@ -39,6 +42,11 @@ export function ThemeProvider({
     }
     
     localStorage.setItem("theme", theme);
+    
+    // Remove transition class after animation completes
+    setTimeout(() => {
+      root.classList.remove('theme-transition');
+    }, 300);
   }, [theme]);
 
   return (
