@@ -1,4 +1,5 @@
 
+
 import React, { useState } from 'react';
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -141,7 +142,7 @@ export function ProjectsSection() {
     },
     {
       title: "Nepal Tour",
-      description: "A visual tour of Nepal created for the Interact Club of Bishnu Memorial. This project was designed for international collaboration and to promote the cultural and natural beauty of Nepal.",
+      description: "A visual tour of Nepal made for the Interact Club of Bishnu Memorial to promote Nepal's culture and natural beauty internationally.",
       image: "https://img.youtube.com/vi/mjlR46nOCZI/maxresdefault.jpg",
       youtubeUrl: "https://youtu.be/mjlR46nOCZI",
       videoId: "mjlR46nOCZI",
@@ -178,3 +179,4 @@ export function ProjectsSection() {
     </section>
   );
 }
+
