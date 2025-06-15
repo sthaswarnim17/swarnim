@@ -69,6 +69,7 @@ export function FeaturedProjectSection() {
                       className="absolute inset-0 w-full h-full"
                       src={`https://www.youtube.com/embed/${videoId}?rel=0`}
                       title="Festivals of Nepal – Project Showcase"
+                      loading="lazy"
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                       allowFullScreen
                     ></iframe>
@@ -85,7 +86,7 @@ export function FeaturedProjectSection() {
                 </p>
                 
                 {/* YouTube link button */}
-                <Button variant="outline" size="sm" className="gap-2" asChild>
+                <Button variant="outline" size="sm" className="gap-2 transition-colors" asChild>
                   <a href={youtubeUrl} target="_blank" rel="noopener noreferrer">
                     <ExternalLink className="h-4 w-4" />
                     <span>Watch on YouTube</span>

@@ -1,5 +1,4 @@
 
-
 import React, { useState } from 'react';
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -39,23 +38,32 @@ function ProjectCard({
 
   return (
     <div 
-      className="bg-card rounded-lg shadow-md overflow-hidden"
+      className="bg-card rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg will-change-transform"
       data-aos="fade-up"
       data-aos-delay={aosDelay}
     >
       <div className="relative">
         {videoId && !showVideo ? (
-          <img 
-            src={`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`}
-            alt={title} 
-            className="w-full h-60 object-cover transition-transform hover:scale-105 duration-500 rounded-t-lg"
-          />
+          <div className="relative cursor-pointer group" onClick={handleVideoPlay}>
+            <img 
+              src={`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`}
+              alt={title} 
+              loading="lazy"
+              className="w-full h-60 object-cover transition-transform duration-500 group-hover:scale-105 rounded-t-lg"
+            />
+            <div className="absolute inset-0 flex items-center justify-center bg-black/20">
+              <div className="w-16 h-16 bg-red-600/90 rounded-full flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
+                <Play className="w-6 h-6 text-white ml-1" fill="currentColor" />
+              </div>
+            </div>
+          </div>
         ) : videoId && showVideo ? (
           <AspectRatio ratio={16 / 9}>
             <iframe
               className="absolute inset-0 w-full h-full rounded-t-lg"
               src={`https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`}
               title={title}
+              loading="lazy"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
             ></iframe>
@@ -65,6 +73,7 @@ function ProjectCard({
             <img 
               src={image} 
               alt={title} 
+              loading="lazy"
               className="w-full h-60 object-cover transition-transform hover:scale-105 duration-500 rounded-t-lg"
             />
             {inProgress && (
@@ -91,7 +100,7 @@ function ProjectCard({
         
         <div className="flex gap-3 mt-4">
           {githubUrl && (
-            <Button variant="outline" size="sm" className="gap-2" asChild>
+            <Button variant="outline" size="sm" className="gap-2 transition-colors" asChild>
               <a href={githubUrl} target="_blank" rel="noopener noreferrer">
                 <Github className="h-4 w-4" />
                 <span>Code</span>
@@ -99,7 +108,7 @@ function ProjectCard({
             </Button>
           )}
           {liveUrl && (
-            <Button size="sm" className="gap-2" asChild>
+            <Button size="sm" className="gap-2 transition-colors" asChild>
               <a href={liveUrl} target="_blank" rel="noopener noreferrer">
                 <ExternalLink className="h-4 w-4" />
                 <span>Live Demo</span>
@@ -107,7 +116,7 @@ function ProjectCard({
             </Button>
           )}
           {youtubeUrl && (
-            <Button variant="outline" size="sm" className="gap-2" asChild>
+            <Button variant="outline" size="sm" className="gap-2 transition-colors" asChild>
               <a href={youtubeUrl} target="_blank" rel="noopener noreferrer">
                 <Youtube className="h-4 w-4" />
                 <span>Preview</span>
@@ -179,4 +188,3 @@ export function ProjectsSection() {
     </section>
   );
 }
-

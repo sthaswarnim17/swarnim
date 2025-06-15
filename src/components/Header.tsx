@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+
+import { useState, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { ThemeToggle } from "./ThemeToggle";
 import { Button } from "./ui/button";
@@ -9,20 +10,30 @@ export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
+  // Debounced scroll handler using requestAnimationFrame
+  const handleScroll = useCallback(() => {
+    let ticking = false;
+    
+    const updateScrollState = () => {
+      const shouldBeScrolled = window.scrollY > 50;
+      if (shouldBeScrolled !== isScrolled) {
+        setIsScrolled(shouldBeScrolled);
       }
+      ticking = false;
     };
 
-    window.addEventListener("scroll", handleScroll);
+    if (!ticking) {
+      requestAnimationFrame(updateScrollState);
+      ticking = true;
+    }
+  }, [isScrolled]);
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [handleScroll]);
 
   const scrollToSection = (id: string) => {
     setIsMobileMenuOpen(false);
@@ -35,7 +46,7 @@ export function Header() {
   return (
     <header
       className={cn(
-        "fixed top-0 left-0 w-full z-50 transition-all duration-300",
+        "fixed top-0 left-0 w-full z-50 transition-all duration-300 will-change-[background-color,backdrop-filter]",
         isScrolled
           ? "bg-background/80 backdrop-blur-md py-3 shadow-sm"
           : "bg-transparent py-5"
@@ -154,7 +165,7 @@ export function Header() {
       {/* Mobile Menu */}
       <div
         className={cn(
-          "md:hidden absolute top-full left-0 w-full bg-background/95 backdrop-blur-md transition-all duration-300 overflow-hidden",
+          "md:hidden absolute top-full left-0 w-full bg-background/95 backdrop-blur-md transition-all duration-300 overflow-hidden will-change-[max-height,opacity]",
           isMobileMenuOpen
             ? "max-h-[300px] opacity-100 border-b border-border"
             : "max-h-0 opacity-0"
@@ -163,7 +174,7 @@ export function Header() {
         <div className="container py-4 flex flex-col space-y-4">
           <a
             href="#"
-            className="block px-4 py-2 text-sm font-medium hover:bg-muted rounded-md"
+            className="block px-4 py-2 text-sm font-medium hover:bg-muted rounded-md transition-colors"
             onClick={(e) => {
               e.preventDefault();
               window.scrollTo({ top: 0, behavior: "smooth" });
@@ -174,7 +185,7 @@ export function Header() {
           </a>
           <a
             href="#about"
-            className="block px-4 py-2 text-sm font-medium hover:bg-muted rounded-md"
+            className="block px-4 py-2 text-sm font-medium hover:bg-muted rounded-md transition-colors"
             onClick={(e) => {
               e.preventDefault();
               scrollToSection("about");
@@ -184,7 +195,7 @@ export function Header() {
           </a>
           <a
             href="#tools"
-            className="block px-4 py-2 text-sm font-medium hover:bg-muted rounded-md"
+            className="block px-4 py-2 text-sm font-medium hover:bg-muted rounded-md transition-colors"
             onClick={(e) => {
               e.preventDefault();
               scrollToSection("tools");
@@ -194,7 +205,7 @@ export function Header() {
           </a>
           <a
             href="#projects"
-            className="block px-4 py-2 text-sm font-medium hover:bg-muted rounded-md"
+            className="block px-4 py-2 text-sm font-medium hover:bg-muted rounded-md transition-colors"
             onClick={(e) => {
               e.preventDefault();
               scrollToSection("projects");
@@ -204,7 +215,7 @@ export function Header() {
           </a>
           <a
             href="#contact"
-            className="block px-4 py-2 text-sm font-medium hover:bg-muted rounded-md"
+            className="block px-4 py-2 text-sm font-medium hover:bg-muted rounded-md transition-colors"
             onClick={(e) => {
               e.preventDefault();
               scrollToSection("contact");
