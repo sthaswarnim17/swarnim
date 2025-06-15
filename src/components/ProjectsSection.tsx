@@ -83,11 +83,12 @@ function ProjectCard({
 export function ProjectsSection() {
   const projects: ProjectCardProps[] = [
     {
-      title: "KhwopaConnect",
-      description: "An e-commerce platform promoting local Bhaktapur goods, built during a hackathon.",
-      image: "https://i.postimg.cc/VLmTyDBG/IMG-7149.jpg",
-      githubUrl: "#",
-      technologies: ["HTML", "CSS", "JavaScript"],
+      title: "CurioQuotes",
+      description: "A simple yet stylish web app that displays random inspirational quotes. Get new random quotes from DummyJSON API.",
+      image: "https://placehold.co/600x400",
+      liveUrl: "https://sthaswarnim17.github.io/CurioQuotes/",
+      githubUrl: "https://github.com/sthaswarnim17/CurioQuotes",
+      technologies: ["HTML5", "CSS3", "JavaScript", "DummyJSON API", "GitHub Pages"],
       aosDelay: 100
     },
     {

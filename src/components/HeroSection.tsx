@@ -147,7 +147,7 @@ export function HeroSection() {
             >
               <GradientButton 
                 size="lg" 
-                onClick={() => window.open("/resume.pdf", "_blank")}
+                onClick={() => window.open("https://github.com/sthaswarnim17/swarnim/blob/main/public/Swarnim_Resume.pdf", "_blank")}
                 gradientFrom="from-blue-600" 
                 gradientTo="to-blue-800"
                 pulseColor="blue-500"
