@@ -109,6 +109,11 @@
   .project-card {
     contain: layout style;
     transform: translateZ(0); /* Force hardware acceleration */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  }
+
+  .project-card:hover {
+    transform: translateY(-4px) translateZ(0);
   }
 }
 
@@ -119,8 +124,12 @@
 
   .glass-card {
     @apply bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl dark:bg-black/40 dark:border-white/10;
-    transition: background-color 200ms ease-in-out, border-color 200ms ease-in-out;
-    will-change: background-color, border-color;
+    transition: background-color 200ms ease-in-out, border-color 200ms ease-in-out, transform 0.3s ease-in-out;
+    will-change: background-color, border-color, transform;
+  }
+
+  .glass-card:hover {
+    transform: translateY(-2px) scale(1.02);
   }
   
   .link-underline {
@@ -139,6 +148,20 @@
 
   .transition-colors-fast {
     transition: background-color 200ms ease-in-out, color 200ms ease-in-out;
+  }
+
+  /* Enhanced button animations */
+  .btn-hover-scale {
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  }
+
+  .btn-hover-scale:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  .btn-hover-scale:active {
+    transform: scale(0.98);
   }
 }
 
@@ -162,6 +185,38 @@
 
 .animate-blink {
   animation: blink 1s infinite;
+}
+
+/* Enhanced fade in animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* Smooth scale animation */
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.5s ease-out;
 }
 
 /* Floating particles with performance optimizations */
@@ -289,8 +344,17 @@
 @media (prefers-reduced-motion: reduce) {
   .transition-all,
   .transition-colors,
-  .transition-transform {
+  .transition-transform,
+  .project-card,
+  .glass-card,
+  .btn-hover-scale {
     transition: none !important;
     animation: none !important;
+  }
+
+  .project-card:hover,
+  .glass-card:hover,
+  .btn-hover-scale:hover {
+    transform: none !important;
   }
 }
