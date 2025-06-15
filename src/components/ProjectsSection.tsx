@@ -1,8 +1,9 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Github, ExternalLink } from "lucide-react";
+import { Github, ExternalLink, Play, Youtube } from "lucide-react";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 interface ProjectCardProps {
   title: string;
@@ -10,6 +11,8 @@ interface ProjectCardProps {
   image: string;
   liveUrl?: string;
   githubUrl?: string;
+  youtubeUrl?: string;
+  videoId?: string;
   technologies: string[];
   inProgress?: boolean;
   aosDelay?: number;
@@ -21,10 +24,18 @@ function ProjectCard({
   image, 
   liveUrl, 
   githubUrl, 
+  youtubeUrl,
+  videoId,
   technologies, 
   inProgress = false,
   aosDelay = 0
 }: ProjectCardProps) {
+  const [showVideo, setShowVideo] = useState(false);
+
+  const handleVideoPlay = () => {
+    setShowVideo(true);
+  };
+
   return (
     <div 
       className="bg-card rounded-lg shadow-md overflow-hidden"
@@ -32,17 +43,48 @@ function ProjectCard({
       data-aos-delay={aosDelay}
     >
       <div className="relative">
-        <img 
-          src={image} 
-          alt={title} 
-          className="w-full h-60 object-cover transition-transform hover:scale-105 duration-500 rounded-t-lg"
-        />
-        {inProgress && (
-          <div className="absolute top-3 right-3">
-            <Badge variant="secondary" className="bg-yellow-500/10 text-yellow-500 border-yellow-500/20">
-              In Progress
-            </Badge>
+        {videoId && !showVideo ? (
+          <div className="relative">
+            <AspectRatio ratio={16 / 9}>
+              <div 
+                className="absolute inset-0 bg-cover bg-center cursor-pointer group"
+                style={{ backgroundImage: `url(https://img.youtube.com/vi/${videoId}/maxresdefault.jpg)` }}
+                onClick={handleVideoPlay}
+              >
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="w-16 h-16 md:w-20 md:h-20 bg-red-600/90 rounded-full flex items-center justify-center transition-transform duration-300 group-hover:scale-110 group-hover:bg-red-600">
+                    <Play className="w-6 h-6 md:w-8 md:h-8 text-white ml-1" fill="currentColor" />
+                  </div>
+                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-60"></div>
+              </div>
+            </AspectRatio>
           </div>
+        ) : videoId && showVideo ? (
+          <AspectRatio ratio={16 / 9}>
+            <iframe
+              className="absolute inset-0 w-full h-full rounded-t-lg"
+              src={`https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`}
+              title={title}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+          </AspectRatio>
+        ) : (
+          <>
+            <img 
+              src={image} 
+              alt={title} 
+              className="w-full h-60 object-cover transition-transform hover:scale-105 duration-500 rounded-t-lg"
+            />
+            {inProgress && (
+              <div className="absolute top-3 right-3">
+                <Badge variant="secondary" className="bg-yellow-500/10 text-yellow-500 border-yellow-500/20">
+                  In Progress
+                </Badge>
+              </div>
+            )}
+          </>
         )}
       </div>
       <div className="p-6">
@@ -74,6 +116,14 @@ function ProjectCard({
               </a>
             </Button>
           )}
+          {youtubeUrl && (
+            <Button variant="outline" size="sm" className="gap-2" asChild>
+              <a href={youtubeUrl} target="_blank" rel="noopener noreferrer">
+                <Youtube className="h-4 w-4" />
+                <span>Preview</span>
+              </a>
+            </Button>
+          )}
         </div>
       </div>
     </div>
@@ -101,11 +151,12 @@ export function ProjectsSection() {
       aosDelay: 200
     },
     {
-      title: "Future Project",
-      description: "An exciting project coming soon. Stay tuned for updates!",
-      image: "https://placehold.co/600x400",
-      inProgress: true,
-      technologies: ["Coming Soon"],
+      title: "Festivals of Nepal",
+      description: "A culturally-rich video project exploring Nepal's vibrant festivals, created to celebrate our traditions with creativity and passion.",
+      image: "https://img.youtube.com/vi/qa2InEhNVDs/maxresdefault.jpg",
+      youtubeUrl: "https://youtu.be/qa2InEhNVDs",
+      videoId: "qa2InEhNVDs",
+      technologies: ["Video Editing", "Storytelling", "Cultural Documentation"],
       aosDelay: 300
     }
   ];
