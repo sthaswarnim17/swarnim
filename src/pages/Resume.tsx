@@ -1,5 +1,5 @@
 
-import { ArrowLeft, Download, ExternalLink } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 
@@ -22,31 +22,6 @@ const Resume = () => {
               Back to Portfolio
             </Button>
             <h1 className="text-xl font-semibold">Resume - Swarnim Shrestha</h1>
-          </div>
-          
-          <div className="flex items-center gap-2">
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={() => window.open("/Swarnim_Resume.pdf", "_blank")}
-              className="gap-2"
-            >
-              <ExternalLink className="h-4 w-4" />
-              Open in New Tab
-            </Button>
-            <Button
-              size="sm"
-              onClick={() => {
-                const link = document.createElement('a');
-                link.href = '/Swarnim_Resume.pdf';
-                link.download = 'Swarnim_Shrestha_Resume.pdf';
-                link.click();
-              }}
-              className="gap-2"
-            >
-              <Download className="h-4 w-4" />
-              Download
-            </Button>
           </div>
         </div>
       </header>
