@@ -134,7 +134,7 @@ export function ProjectsSection() {
     {
       title: "Portfolio Website",
       description: "My personal portfolio website showcasing my skills, projects, and experience.",
-      image: "/lovable-uploads/27e34563-b954-4334-b11b-82cd68c44f35.png",
+      image: "/lovable-uploads/e5f06257-f3aa-4d5f-a94e-0a00b27a4968.png",
       liveUrl: "https://www.swarnimstha.com.np",
       githubUrl: "https://github.com/sthaswarnim17/sthaswarnim17.github.io",
       technologies: ["React", "Tailwind CSS", "TypeScript"],
