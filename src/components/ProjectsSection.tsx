@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -139,13 +140,22 @@ export function ProjectsSection() {
       aosDelay: 200
     },
     {
+      title: "Nepal Tour",
+      description: "A visual tour of Nepal created for the Interact Club of Bishnu Memorial. This project was designed for international collaboration and to promote the cultural and natural beauty of Nepal.",
+      image: "https://img.youtube.com/vi/mjlR46nOCZI/maxresdefault.jpg",
+      youtubeUrl: "https://youtu.be/mjlR46nOCZI",
+      videoId: "mjlR46nOCZI",
+      technologies: ["Video Production", "Cultural Documentation", "International Collaboration"],
+      aosDelay: 300
+    },
+    {
       title: "Festivals of Nepal",
       description: "A culturally-rich video project exploring Nepal's vibrant festivals, created to celebrate our traditions with creativity and passion.",
       image: "https://img.youtube.com/vi/qa2InEhNVDs/maxresdefault.jpg",
       youtubeUrl: "https://youtu.be/qa2InEhNVDs",
       videoId: "qa2InEhNVDs",
       technologies: ["Video Editing", "Storytelling", "Cultural Documentation"],
-      aosDelay: 300
+      aosDelay: 400
     }
   ];
 
