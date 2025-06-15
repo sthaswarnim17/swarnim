@@ -43,16 +43,11 @@ function ProjectCard({
     >
       <div className="relative">
         {videoId && !showVideo ? (
-          <div className="relative">
-            <AspectRatio ratio={16 / 9}>
-              <div 
-                className="absolute inset-0 bg-cover bg-center"
-                style={{ backgroundImage: `url(https://img.youtube.com/vi/${videoId}/maxresdefault.jpg)` }}
-              >
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-60"></div>
-              </div>
-            </AspectRatio>
-          </div>
+          <img 
+            src={`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`}
+            alt={title} 
+            className="w-full h-60 object-cover transition-transform hover:scale-105 duration-500 rounded-t-lg"
+          />
         ) : videoId && showVideo ? (
           <AspectRatio ratio={16 / 9}>
             <iframe
