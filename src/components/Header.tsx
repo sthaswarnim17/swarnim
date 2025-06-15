@@ -1,10 +1,11 @@
-
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { ThemeToggle } from "./ThemeToggle";
 import { Button } from "./ui/button";
 import { cn } from "@/lib/utils";
 
 export function Header() {
+  const navigate = useNavigate();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -102,9 +103,7 @@ export function Header() {
             variant="default"
             size="sm"
             className="ml-2"
-            onClick={() => {
-              window.open("/Swarnim_Resume.pdf", "_blank");
-            }}
+            onClick={() => navigate("/resume")}
           >
             View Resume
           </Button>
@@ -218,7 +217,7 @@ export function Header() {
             size="sm"
             className="mx-4"
             onClick={() => {
-              window.open("/Swarnim_Resume.pdf", "_blank");
+              navigate("/resume");
               setIsMobileMenuOpen(false);
             }}
           >

@@ -1,5 +1,7 @@
+
 import { Download, Mail, ArrowDown } from "lucide-react";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import AnimatedTitles from "./AnimatedTitles";
 import { GradientButton } from "./GradientButton";
@@ -7,6 +9,7 @@ import { ParticlesBackground } from "./ParticlesBackground";
 import { useIsMobile } from "@/hooks/use-mobile";
 
 export function HeroSection() {
+  const navigate = useNavigate();
   const isMobile = useIsMobile();
   
   const scrollToContact = () => {
@@ -146,7 +149,7 @@ export function HeroSection() {
             >
               <GradientButton 
                 size="lg" 
-                onClick={() => window.open("/Swarnim_Resume.pdf", "_blank")}
+                onClick={() => navigate("/resume")}
                 gradientFrom="from-blue-600" 
                 gradientTo="to-blue-800"
                 pulseColor="blue-500"
