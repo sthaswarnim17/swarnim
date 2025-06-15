@@ -9,10 +9,19 @@ import { ContactSection } from "@/components/ContactSection";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { ParticlesBackground } from "@/components/ParticlesBackground";
+import { useTheme } from "@/components/ThemeProvider";
+import { cn } from "@/lib/utils";
 
 const Index = () => {
+  const { theme } = useTheme();
+  
   return (
-    <div className="min-h-screen bg-background transition-colors duration-200 ease-in-out">
+    <div className={cn(
+      "min-h-screen transition-colors duration-200 ease-in-out",
+      theme === "dark" 
+        ? "bg-gray-900 text-white" 
+        : "bg-white text-gray-900"
+    )}>
       <ParticlesBackground />
       <Header />
       <HeroSection />
