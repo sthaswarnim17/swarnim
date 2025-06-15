@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -47,15 +46,9 @@ function ProjectCard({
           <div className="relative">
             <AspectRatio ratio={16 / 9}>
               <div 
-                className="absolute inset-0 bg-cover bg-center cursor-pointer group"
+                className="absolute inset-0 bg-cover bg-center"
                 style={{ backgroundImage: `url(https://img.youtube.com/vi/${videoId}/maxresdefault.jpg)` }}
-                onClick={handleVideoPlay}
               >
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-16 h-16 md:w-20 md:h-20 bg-red-600/90 rounded-full flex items-center justify-center transition-transform duration-300 group-hover:scale-110 group-hover:bg-red-600">
-                    <Play className="w-6 h-6 md:w-8 md:h-8 text-white ml-1" fill="currentColor" />
-                  </div>
-                </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-60"></div>
               </div>
             </AspectRatio>
