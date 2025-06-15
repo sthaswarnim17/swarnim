@@ -35,7 +35,7 @@ function ProjectCard({
         <img 
           src={image} 
           alt={title} 
-          className="w-full h-48 object-cover transition-transform hover:scale-105 duration-500"
+          className="w-full h-60 object-cover transition-transform hover:scale-105 duration-500 rounded-t-lg"
         />
         {inProgress && (
           <div className="absolute top-3 right-3">
@@ -85,7 +85,7 @@ export function ProjectsSection() {
     {
       title: "CurioQuotes",
       description: "A simple yet stylish web app that displays random inspirational quotes. Get new random quotes from DummyJSON API.",
-      image: "https://placehold.co/600x400",
+      image: "/lovable-uploads/e38b4bc4-a02e-418d-9890-eefefaa0a0b2.png",
       liveUrl: "https://sthaswarnim17.github.io/CurioQuotes/",
       githubUrl: "https://github.com/sthaswarnim17/CurioQuotes",
       technologies: ["HTML5", "CSS3", "JavaScript", "DummyJSON API", "GitHub Pages"],
@@ -94,7 +94,7 @@ export function ProjectsSection() {
     {
       title: "Portfolio Website",
       description: "My personal portfolio website showcasing my skills, projects, and experience.",
-      image: "https://placehold.co/600x400",
+      image: "/lovable-uploads/27e34563-b954-4334-b11b-82cd68c44f35.png",
       liveUrl: "https://www.swarnimstha.com.np",
       githubUrl: "https://github.com/sthaswarnim17/sthaswarnim17.github.io",
       technologies: ["React", "Tailwind CSS", "TypeScript"],

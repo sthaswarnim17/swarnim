@@ -1,8 +1,9 @@
 
 import { useState, useRef } from "react";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
-import { Play, Pause } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { ExternalLink } from "lucide-react";
 
 export function FeaturedProjectSection() {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -11,6 +12,7 @@ export function FeaturedProjectSection() {
   // YouTube video configuration
   const videoId = "qa2InEhNVDs";
   const thumbnailUrl = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
+  const youtubeUrl = `https://youtu.be/${videoId}`;
 
   const handlePlayVideo = () => {
     if (videoRef.current) {
@@ -47,8 +49,14 @@ export function FeaturedProjectSection() {
                       >
                         {/* Play button overlay */}
                         <div className="absolute inset-0 flex items-center justify-center">
-                          <div className="w-16 h-16 md:w-20 md:h-20 bg-primary/90 rounded-full flex items-center justify-center transition-transform duration-300 group-hover:scale-110 group-hover:bg-primary">
-                            <Play className="w-6 h-6 md:w-8 md:h-8 text-white ml-1" />
+                          <div className="w-16 h-16 md:w-20 md:h-20 bg-red-600/90 rounded-full flex items-center justify-center transition-transform duration-300 group-hover:scale-110 group-hover:bg-red-600">
+                            <svg 
+                              className="w-6 h-6 md:w-8 md:h-8 text-white ml-1" 
+                              fill="currentColor" 
+                              viewBox="0 0 24 24"
+                            >
+                              <path d="M8 5v14l11-7z"/>
+                            </svg>
                           </div>
                         </div>
                         {/* Gradient overlay for better text contrast */}
@@ -70,11 +78,19 @@ export function FeaturedProjectSection() {
               
               {/* Video description */}
               <div className="p-6 text-center">
-                <p className="text-lg text-muted-foreground">
+                <p className="text-lg text-muted-foreground mb-4">
                   A cultural documentary video created as part of my contribution to the Interact Club of Bishnu Memorial. 
                   It highlights Nepal's diverse and vibrant festivals through storytelling, visuals, and editing — 
                   blending my technical and creative skills.
                 </p>
+                
+                {/* YouTube link button */}
+                <Button variant="outline" size="sm" className="gap-2" asChild>
+                  <a href={youtubeUrl} target="_blank" rel="noopener noreferrer">
+                    <ExternalLink className="h-4 w-4" />
+                    <span>Watch on YouTube</span>
+                  </a>
+                </Button>
               </div>
             </CardContent>
           </Card>

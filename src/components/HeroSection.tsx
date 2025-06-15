@@ -1,4 +1,3 @@
-
 import { Download, Mail, ArrowDown } from "lucide-react";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
@@ -147,13 +146,13 @@ export function HeroSection() {
             >
               <GradientButton 
                 size="lg" 
-                onClick={() => window.open("https://github.com/sthaswarnim17/swarnim/blob/main/public/Swarnim_Resume.pdf", "_blank")}
+                onClick={() => window.open("/Swarnim_Resume.pdf", "_blank")}
                 gradientFrom="from-blue-600" 
                 gradientTo="to-blue-800"
                 pulseColor="blue-500"
                 className="w-full sm:w-auto mb-2 sm:mb-0"
               >
-                <Download size={18} className="mr-2" /> Download Resume
+                <Download size={18} className="mr-2" /> View Resume
               </GradientButton>
               
               <GradientButton 

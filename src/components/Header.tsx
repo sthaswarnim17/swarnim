@@ -103,10 +103,10 @@ export function Header() {
             size="sm"
             className="ml-2"
             onClick={() => {
-              window.open("https://github.com/sthaswarnim17/swarnim/blob/main/public/Swarnim_Resume.pdf", "_blank");
+              window.open("/Swarnim_Resume.pdf", "_blank");
             }}
           >
-            Download Resume
+            View Resume
           </Button>
         </nav>
 
@@ -218,11 +218,11 @@ export function Header() {
             size="sm"
             className="mx-4"
             onClick={() => {
-              window.open("https://github.com/sthaswarnim17/swarnim/blob/main/public/Swarnim_Resume.pdf", "_blank");
+              window.open("/Swarnim_Resume.pdf", "_blank");
               setIsMobileMenuOpen(false);
             }}
           >
-            Download Resume
+            View Resume
           </Button>
         </div>
       </div>
