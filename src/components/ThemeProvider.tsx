@@ -31,8 +31,8 @@ export function ThemeProvider({
   useEffect(() => {
     const root = window.document.documentElement;
     
-    // Add transition class before theme change
-    root.classList.add('theme-transition');
+    // Add fast transition class before theme change
+    root.classList.add('theme-transition-fast');
     
     if (theme === "system") {
       const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
@@ -45,8 +45,8 @@ export function ThemeProvider({
     
     // Remove transition class after animation completes
     setTimeout(() => {
-      root.classList.remove('theme-transition');
-    }, 300);
+      root.classList.remove('theme-transition-fast');
+    }, 200);
   }, [theme]);
 
   return (

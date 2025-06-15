@@ -12,7 +12,7 @@ import { ParticlesBackground } from "@/components/ParticlesBackground";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background transition-colors duration-200 ease-in-out">
       <ParticlesBackground />
       <Header />
       <HeroSection />
