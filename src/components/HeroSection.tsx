@@ -200,11 +200,11 @@ export function HeroSection() {
                   {/* Second layer glow that intensifies on hover */}
                   <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-blue-500/20 to-purple-500/20 blur-sm -m-0.5 transition-all duration-300 group-hover:from-blue-500/40 group-hover:to-purple-500/40 group-hover:blur-md"></div>
                   
-                  {/* Image with hover effect - updated with requested image link */}
+                  {/* Image with hover effect - using local image */}
                   <img 
                     alt="Swarnim Shrestha" 
                     className="w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-2xl shadow-xl object-cover relative z-10 border-2 border-white/20 dark:border-white/10 transition-all duration-500 group-hover:border-white/40 dark:group-hover:border-white/20"
-                    src="https://i.postimg.cc/hGN1qjnK/Swarnim-3.png"
+                    src="/Swarnim.png"
                     style={{ 
                       transition: "transform 0.5s ease-out",
                     }}
