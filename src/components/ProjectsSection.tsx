@@ -170,7 +170,7 @@ export function ProjectsSection() {
     {
       title: "Old Portfolio",
       description: "My first portfolio website created for the Web Application subject lab, showcasing foundational web development skills.",
-      image: "https://sthaswarnim17.github.io/swarnimstha/images/swarnim.png",
+      image: "/old-portfolio-thumbnail.png",
       liveUrl: "https://sthaswarnim17.github.io/swarnimstha/",
       githubUrl: "https://github.com/sthaswarnim17/swarnimstha",
       technologies: ["HTML5", "CSS3"],
